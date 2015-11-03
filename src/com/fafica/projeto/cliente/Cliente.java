@@ -14,10 +14,6 @@ public class Cliente {
 		 this.setCodigo(codigo);
 		 this.setNome(nome);
 	 }
-	 
-	 public String toString(){
-		 return "Cliente"+ "\nCodigo: "+codigo + "\nNome: "+nome;
-	 }
 
 	public int getCodigo() {
 		return codigo;
@@ -34,6 +30,8 @@ public class Cliente {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	 
 	
+	 public String toString(){
+		 return "Cliente"+ "\nCodigo: "+codigo + "\nNome: "+nome;
+	 }
 }
