@@ -1,0 +1,36 @@
+
+
+Cliente{
+Integer codigo
+String cpf
+String nome
+Integer numeroLoja
+}
+
+Funcionario{
+Integer codigo
+String nome
+}
+
+Admininstrador implements Funcionario
+
+Caixa{
+Integer codigo
+ArrayList<Documento> documento
+Cliente cliente
+Estante estante
+}
+
+Documento{
+Integer codigo
+String nome
+String descricao
+Cliente cliente
+Caixa caixa
+}
+
+Estante{
+String rua
+Integer codigo
+ArrayList<Caixa> caixa
+}
