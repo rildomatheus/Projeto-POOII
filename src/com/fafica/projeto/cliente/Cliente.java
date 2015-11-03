@@ -11,17 +11,12 @@ public class Cliente {
 	private Documento documento;
 	private Administrador administrador;
 	
-	 
+	public Cliente(){
+		
+	} 
+	
 	 public Cliente(int codigo, String nome, String cpf, Documento documento,Administrador administrador){
 		 this.setCodigo(codigo);
-		 this.setCPF(cpf);
-		 this.setNome(nome);
-		 this.setDocumento(documento);
-		 this.setAdministrador(administrador);
-	 }
-	 
-	 public Cliente(String nome,String cpf, Documento documento,Administrador administrador){
-		 this.setCodigo(0);
 		 this.setCPF(cpf);
 		 this.setNome(nome);
 		 this.setDocumento(documento);
@@ -67,7 +62,6 @@ public class Cliente {
 	
 	
 	 public String toString(){
-		 return "Cliente"+ "\nCodigo: "+codigo + "\nNome: "+nome+ "\nDocumento"+documento + 
-		 "\nAdministrador: "+administrador;
+		 return "Cliente"+ "\nCodigo: "+codigo + "\nNome: "+nome+ "\nDocumento"+documento + "\nAdministrador: "+administrador;
 	 }
 }
