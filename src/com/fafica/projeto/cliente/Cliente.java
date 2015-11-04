@@ -6,7 +6,6 @@ import com.fafica.projeto.administrador.Administrador;
 public class Cliente {
 	
 	private Integer codigo;
-	private String cpf;
 	private String nome;
 	private Documento documento;
 	private Administrador administrador;
@@ -15,9 +14,8 @@ public class Cliente {
 		
 	} 
 	
-	 public Cliente(int codigo, String nome, String cpf, Documento documento,Administrador administrador){
+	 public Cliente(int codigo, String nome, Documento documento,Administrador administrador){
 		 this.setCodigo(codigo);
-		 this.setCPF(cpf);
 		 this.setNome(nome);
 		 this.setDocumento(documento);
 		 this.setAdministrador(administrador);
@@ -28,13 +26,6 @@ public class Cliente {
 	}
 	public void setCodigo(Integer codigo) {
 		this.codigo = codigo;
-	}
-	
-	public String getCPF(){
-		return cpf;
-	}
-	public void setCPF(String cpf){
-		this.cpf = cpf;
 	}
 
 	public String getNome() {

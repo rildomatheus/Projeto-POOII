@@ -2,7 +2,6 @@
 
 Cliente{
 Integer codigo
-String cpf
 String nome
 Integer numeroLoja
 }
