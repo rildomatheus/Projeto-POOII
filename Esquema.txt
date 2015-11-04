@@ -1,23 +1,46 @@
 
-
 Cliente{
+Administrador administrador
 Integer codigo
 String nome
 Integer numeroLoja
+
+create table cliente(
+codigo_cliente number(4),
+nome_cliente varchar(40),
+numero_loja number(3),
+codigo_administrador number(3),
+primary key(codigo_cliente),
+foreign key(codigo_administrador)
+references administrador(codigo_administrador)
+);
 }
 
 Funcionario{
 Integer codigo
 String nome
+
 }
 
 Admininstrador implements Funcionario
 
 Caixa{
+
 Integer codigo
 ArrayList<Documento> documento
 Cliente cliente
 Estante estante
+
+create table caixa(
+codigo_caixa number(7),
+codigo_cliente number(4),
+codigo_estante number(4),
+primary key(codigo_caixa),
+foreign key(codigo_cliente)
+references cliente(codigo_cliente),
+foreign key(codigo_estante)
+references estante(codigo_estante)
+);
 }
 
 Documento{

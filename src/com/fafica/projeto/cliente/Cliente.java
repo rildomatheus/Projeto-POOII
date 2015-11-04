@@ -7,18 +7,14 @@ public class Cliente {
 	
 	private Integer codigo;
 	private String nome;
-	private Documento documento;
-	private Administrador administrador;
 	
 	public Cliente(){
-		
+	
 	} 
 	
-	 public Cliente(int codigo, String nome, Documento documento,Administrador administrador){
+	 public Cliente(Integer codigo, String nome){
 		 this.setCodigo(codigo);
 		 this.setNome(nome);
-		 this.setDocumento(documento);
-		 this.setAdministrador(administrador);
 	 }
 
 	public Integer getCodigo() {
@@ -35,24 +31,7 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
-	public Documento getDocumento(){
-		return documento;
-	}
-	public void setDocumento(Documento documento){
-		this.documento = documento;
-	}
-	
-	public Administrador getAdministrador(){
-		return administrador;
-	}
-	
-	public void setAdministrador(Administrador administrador){
-		this.administrador = administrador;
-	}
-	
-	
-	
 	 public String toString(){
-		 return "Cliente"+ "\nCodigo: "+codigo + "\nNome: "+nome+ "\nDocumento"+documento + "\nAdministrador: "+administrador;
+		 return "Cliente"+ "\nCodigo: "+codigo + "\nNome: "+nome;
 	 }
 }

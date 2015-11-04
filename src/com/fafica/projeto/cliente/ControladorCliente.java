@@ -7,6 +7,7 @@ import java.util.ArrayList;
 		@Override
 		public void cadastrar(Cliente cliente) {
 			// TODO Auto-generated method stub
+			System.out.println(cliente);
 			
 		}
 
