@@ -8,12 +8,14 @@ public class Cliente {
 	private Integer codigo;
 	private String nome;
 	
-	public Cliente(){
-	
-	} 
 	
 	 public Cliente(Integer codigo, String nome){
 		 this.setCodigo(codigo);
+		 this.setNome(nome);
+	 }
+	 
+	 public Cliente(String nome){
+		 this.setCodigo(0);
 		 this.setNome(nome);
 	 }
 

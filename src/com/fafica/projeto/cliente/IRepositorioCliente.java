@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 		public void cadastrar(Cliente cliente);
 		public void atualizar(Cliente cliente);
-		public boolean remover(int codigo);
-		public Cliente procurar(int codigo);
-		public boolean existe(int codigo);
+		public boolean remover(Integer codigo);
+		public Cliente procurar(Integer codigo);
+		public boolean existe(Integer codigo);
 		public ArrayList<Cliente> listar();
 }

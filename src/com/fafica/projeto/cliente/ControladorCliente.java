@@ -1,14 +1,21 @@
 package com.fafica.projeto.cliente;
 
 import java.util.ArrayList;
+import com.fafica.projeto.cliente.IRepositorioCliente;
+import com.fafica.projeto.cliente.RepositorioClienteArray;
 
 	public class ControladorCliente implements IRepositorioCliente {
 
+		private IRepositorioCliente RepositorioCliente;
+		
+		public ControladorCliente() {
+			this.RepositorioCliente = new RepositorioClienteArray();
+		}
+		
 		@Override
 		public void cadastrar(Cliente cliente) {
 			// TODO Auto-generated method stub
-			System.out.println(cliente);
-			
+			this.RepositorioCliente.cadastrar(cliente);
 		}
 
 		@Override
@@ -18,19 +25,19 @@ import java.util.ArrayList;
 		}
 
 		@Override
-		public boolean remover(int codigo) {
+		public boolean remover(Integer codigo) {
 			// TODO Auto-generated method stub
 			return false;
 		}
 
 		@Override
-		public Cliente procurar(int codigo) {
+		public Cliente procurar(Integer codigo) {
 			// TODO Auto-generated method stub
 			return null;
 		}
 
 		@Override
-		public boolean existe(int codigo) {
+		public boolean existe(Integer codigo) {
 			// TODO Auto-generated method stub
 			return false;
 		}
@@ -40,8 +47,8 @@ import java.util.ArrayList;
 			// TODO Auto-generated method stub
 			return null;
 		}
+
 		
 		
-	
 }
 
