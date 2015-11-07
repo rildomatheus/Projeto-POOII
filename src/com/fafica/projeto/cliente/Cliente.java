@@ -1,24 +1,23 @@
 package com.fafica.projeto.cliente;
 
-import com.fafica.projeto.documento.Documento;
-import com.fafica.projeto.administrador.Administrador;
-
 public class Cliente {
 	
 	private Integer codigo;
 	private String nome;
+	private Integer loja;
 	
 	
-	 public Cliente(Integer codigo, String nome){
-		 this.setCodigo(codigo);
+	 public Cliente(String nome, Integer loja){
 		 this.setNome(nome);
+		 this.setLoja(loja);
 	 }
 	 
-	 public Cliente(String nome){
-		 this.setCodigo(0);
+	 public Cliente(Integer codigo, String nome, Integer loja){
+		 this.setCodigo(codigo);
 		 this.setNome(nome);
+		 this.setLoja(loja);
 	 }
-
+	 
 	public Integer getCodigo() {
 		return codigo;
 	}
@@ -33,7 +32,20 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
+	public Integer getLoja(){
+		return loja;
+	}
+	public void setLoja(Integer loja){
+		this.loja = loja;
+	}
+	
 	 public String toString(){
-		 return "Cliente"+ "\nCodigo: "+codigo + "\nNome: "+nome;
+		 return "[Cliente= " + " Codigo:"+codigo + " Nome:"+nome + " Loja:"+loja + "]";
 	 }
+
+	public void add(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
+	}
+	 	
 }

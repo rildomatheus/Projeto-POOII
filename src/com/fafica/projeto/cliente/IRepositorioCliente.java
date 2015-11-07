@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 	public interface IRepositorioCliente {
 
-		public void cadastrar(Cliente cliente);
+		public void cadastrar(Cliente cliente) throws ClienteInvalidoException;
 		public void atualizar(Cliente cliente);
 		public boolean remover(Integer codigo);
 		public Cliente procurar(Integer codigo);

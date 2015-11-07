@@ -2,11 +2,20 @@ package com.fafica.projeto.cliente;
 
 import java.util.ArrayList;
 
-public class RepositorioClienteArray implements IRepositorioCliente{
+public class RepositorioClienteArrayList implements IRepositorioCliente{
 
+	private ArrayList<Cliente> cliente;
+	private int cod;
 	
-	public void cadastrar(Cliente cliente) {
-		// TODO Auto-generated method stub
+	public RepositorioClienteArrayList() {
+		cliente = new ArrayList<Cliente>();
+		cod = 1;
+	}
+	@Override
+	public void cadastrar(Cliente cliente) throws ClienteInvalidoException {
+		cliente.setCodigo(cod);
+		cliente.add(cliente);
+		cod++;
 		
 	}
 

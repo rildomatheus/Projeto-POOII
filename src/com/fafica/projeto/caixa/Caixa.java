@@ -7,19 +7,19 @@ import com.fafica.projeto.documento.Documento;
 public class Caixa {
 	
 	private	Integer codigo;
-	private	Cliente cliente;
 	private	Estante estante;
 	private Documento documento;
+	private	Cliente cliente;
 	
 	public Caixa(){
 		
 	}
 	
-	public Caixa(Integer codigo, Cliente Cliente, Estante estante,Documento documento){
+	public Caixa(Integer codigo, Estante estante,Documento documento, Cliente cliente){
 		this.setCodigo(codigo);
-		this.setCliente(cliente);
 		this.setEstante(estante);
 		this.setDocumento(documento);
+		this.setCliente(cliente);
 	}
 	
 	public Integer getCodigo(){
@@ -29,12 +29,6 @@ public class Caixa {
 		this.codigo = codigo;
 	}
 	
-	public Cliente getCliente(){
-		return cliente;
-	}
-	public void setCliente(Cliente cliente){
-		this.cliente = cliente;
-	}
 	
 	public Estante getEstante(){
 		return estante;
@@ -50,8 +44,15 @@ public class Caixa {
 		this.documento = documento;
 	}
 	
+	public Cliente getCliente(){
+		return cliente;
+	}
+	public void setCliente(Cliente cliente){
+		this.cliente = cliente;
+	}
+	
 	public String toString(){
-		return "Caixa "+ "\nCodigo: "+codigo+ "\nCliente: "+cliente+ "Estante: "+estante+ "\nDocumento: "+documento;
+		return "Caixa "+ "\nCodigo: "+codigo+ "Estante: "+estante+ "\nDocumento: "+documento+ "Cliente"+cliente;
 	}
 	
 }
