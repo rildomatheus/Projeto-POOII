@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 import com.fafica.projeto.cliente.CampoObrigatorioInvalidoException;
 import com.fafica.projeto.cliente.Cliente;
-import com.fafica.projeto.cliente.ClienteInvalidoException;
-import com.fafica.projeto.cliente.ClienteJaCadastradoException;
 import com.fafica.projeto.cliente.ControladorCliente;
 
 public class Fachada {
@@ -28,29 +26,30 @@ public class Fachada {
 	}
 	
 	
-	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException,ClienteInvalidoException, CampoObrigatorioInvalidoException{
+	public void cadastrarCliente(Cliente cliente) throws  CampoObrigatorioInvalidoException{
 		
 		this.controladorCliente.cadastrar(cliente);
-	    
-	  
+	    System.out.println(cliente);
 	}
 
-	public void atualizar(Cliente cliente) {
+	public void atualizarCliente(Cliente cliente) throws CampoObrigatorioInvalidoException {
 		
+		this.controladorCliente.atualizar(cliente);
+		System.out.println(cliente);
 		
 	}
 
-	public boolean remover(Integer codigo) {
+	public boolean removerCliente(Integer codigo) {
 		
 		return false;
 	}
 
-	public Cliente procurar(Integer codigo) {
+	public Cliente procurarCliente(Integer codigo) {
 		
 		return null;
 	}
 
-	public boolean existe(Integer codigo) {
+	public boolean existeCliente(Integer codigo) {
 		
 		return false;
 	}
@@ -60,4 +59,5 @@ public class Fachada {
 		return null;
 	}
 	//Fim Metodos entidade cliente.
+
 }

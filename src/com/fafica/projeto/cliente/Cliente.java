@@ -12,11 +12,11 @@ public class Cliente {
 		 this.setLoja(loja);
 	 }
 	 
-	 public Cliente(Integer codigo, String nome, Integer loja){
+	public Cliente(Integer codigo, String nome, Integer loja){
 		 this.setCodigo(codigo);
 		 this.setNome(nome);
 		 this.setLoja(loja);
-	 }
+	}
 	 
 	public Integer getCodigo() {
 		return codigo;
@@ -39,13 +39,11 @@ public class Cliente {
 		this.loja = loja;
 	}
 	
-	 public String toString(){
-		 return "[Cliente= " + " Codigo:"+codigo + " Nome:"+nome + " Loja:"+loja + "]";
+	public String toString(){
+		return "[Cliente= " + " Codigo:"+codigo + " Nome:"+nome + " Loja:"+loja + "]";
 	 }
 
 	public void add(Cliente cliente) {
-		// TODO Auto-generated method stub
-		
+			
 	}
-	 	
 }

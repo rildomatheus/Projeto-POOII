@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 	public interface IRepositorioCliente {
 
-		public void cadastrar(Cliente cliente) throws ClienteInvalidoException;
-		public void atualizar(Cliente cliente);
-		public boolean remover(Integer codigo);
-		public Cliente procurar(Integer codigo);
-		public boolean existe(Integer codigo);
+		public void cadastrarCliente(Cliente cliente) throws CampoObrigatorioInvalidoException;
+		public void atualizarCliente(Cliente cliente);
+		public boolean removerCliente(Integer codigo);
+		public Cliente procurarCliente(Integer codigo);
+		public boolean existeCliente(Integer codigo);
 		public ArrayList<Cliente> listar();
 }

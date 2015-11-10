@@ -15,18 +15,22 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 		}
 		
 		
-		public void cadastrar(Cliente cliente) throws ClienteInvalidoException, CampoObrigatorioInvalidoException{
+		public void cadastrar(Cliente cliente) throws CampoObrigatorioInvalidoException{
 			
-			if (cliente == null) throw new ClienteInvalidoException("Cliente Inválido.");
-		    if (cliente.getNome().equals("")) throw new CampoObrigatorioInvalidoException("Nome");
-		      
-		//    this.repositorioCliente.cadastrar(cliente);
+			
+		    if (cliente.getNome().equals("")) throw new CampoObrigatorioInvalidoException("Campo Nome Invalido Ou Nulo");
+		  
+		    
+		    this.repositorioCliente.cadastrarCliente(cliente);
 			
 		}
 
 		
-		public void atualizar(Cliente cliente) {
+		public void atualizar(Cliente cliente) throws CampoObrigatorioInvalidoException {
 			
+			if (cliente.getNome() == "") throw new CampoObrigatorioInvalidoException("Campo Nome Invalido ou Nulo");
+			
+			this.repositorioCliente.atualizarCliente(cliente);
 			
 		}
 
