@@ -2,46 +2,62 @@ package com.fafica.projeto.cliente;
 
 import java.util.ArrayList;
 
+
 public class RepositorioClienteArrayList implements IRepositorioCliente{
 
-	private ArrayList<Cliente> clientes;
-	private int cod;
+	private ArrayList<Cliente> arrayListCliente;
+	private Integer cod;
 	
 	public RepositorioClienteArrayList() {
-		clientes = new ArrayList<Cliente>();
+		arrayListCliente = new ArrayList<Cliente>();
 		cod = 1;
 	}
 	@Override
-	public void cadastrarCliente(Cliente cliente) throws CampoObrigatorioInvalidoException {
-		cliente.setCodigo(cod);
-		clientes.add(cliente);
-		cod++;
+	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException{
+		if (existe(cliente.getCodigo())) throw new ClienteJaCadastradoException();
+		 cliente.setCodigo(cod);
+		 arrayListCliente.add(cliente);
+		 cod++;
+		}
+
+	@Override
+	public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException {
+		
+		int i = getId(cliente.getCodigo());
+		if(i == -1)throw new ClienteNaoEncontradoException();
+		arrayListCliente.add(i,cliente);
+		
 		
 	}
 
 	@Override
-	public void atualizarCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
+	public boolean remover(Integer codigo) throws ClienteNaoEncontradoException{
 		
+		int i = getId(codigo);
+		if(i == -1) throw new ClienteNaoEncontradoException();
+		arrayListCliente.remove(i);
+		return true;
+	}
+
+	@Override
+	public Cliente procurar(Integer codigo) throws ClienteNaoEncontradoException{
 		
+		int i = getId(codigo);
+		if(i== -1) throw new ClienteNaoEncontradoException();
+		return arrayListCliente.get(i);
 	}
 
 	@Override
-	public boolean removerCliente(Integer codigo) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	public boolean existe(Integer codigo) {
 
-	@Override
-	public Cliente procurarCliente(Integer codigo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean existeCliente(Integer codigo) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean existe = false;
+		for (Cliente cliente : arrayListCliente) {
+			if(codigo.equals(cliente.getCodigo())){
+				existe = true;
+				return existe;
+			}
+		}
+		return existe;
 	}
 
 	@Override
@@ -50,5 +66,15 @@ public class RepositorioClienteArrayList implements IRepositorioCliente{
 		return null;
 	}
 	
-
+	   private int getId(Integer codigo) {
+	        int aux = -1;
+	        boolean aux1 = false;
+	        for (int i = 0; !aux1 && (i < cod); i = i + 1) {
+	            if (arrayListCliente.get(i).equals(codigo)) {
+	                aux = i;
+	                aux1 = true;
+	            }
+	        }
+	        return aux;
+	    }
 }

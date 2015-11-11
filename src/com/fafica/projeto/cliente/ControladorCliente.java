@@ -15,47 +15,42 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 		}
 		
 		
-		public void cadastrar(Cliente cliente) throws CampoObrigatorioInvalidoException{
-			
-			
-		    if (cliente.getNome().equals("")) throw new CampoObrigatorioInvalidoException("Campo Nome Invalido Ou Nulo");
-		  
+		public void cadastrar(Cliente cliente)throws ClienteJaCadastradoException{
 		    
-		    this.repositorioCliente.cadastrarCliente(cliente);
+		    this.repositorioCliente.cadastrar(cliente);
 			
 		}
 
 		
-		public void atualizar(Cliente cliente) throws CampoObrigatorioInvalidoException {
+		public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException  {
 			
-			if (cliente.getNome() == "") throw new CampoObrigatorioInvalidoException("Campo Nome Invalido ou Nulo");
 			
-			this.repositorioCliente.atualizarCliente(cliente);
+			this.repositorioCliente.atualizar(cliente);
 			
 		}
 
 		
-		public boolean remover(Integer codigo) {
+		public boolean remover(Integer codigo) throws ClienteNaoEncontradoException{
 			
-			return false;
-		}
+			return repositorioCliente.existe(codigo);		}
 
 		
-		public Cliente procurar(Integer codigo) {
+		public Cliente procurar(Integer codigo) throws ClienteNaoEncontradoException{
 			
-			return null;
+			return repositorioCliente.procurar(codigo);
 		}
 
 		
 		public boolean existe(Integer codigo) {
 			
-			return false;
+			return repositorioCliente.existe(codigo);
 		}
 
 		
 		public ArrayList<Cliente> listar() {
 			
-			return null;
+			return repositorioCliente.listar();
+			
 		}
 
 		
