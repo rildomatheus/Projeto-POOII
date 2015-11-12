@@ -29,7 +29,7 @@ public class Fachada {
 	public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException  {
 		
 		this.controladorCliente.cadastrar(cliente);
-		System.out.println(cliente);
+		
 		
 	}
 
@@ -43,19 +43,25 @@ public class Fachada {
 		return false;
 	}
 
-	public Cliente procurarCliente(Integer codigo) {
-		
-		return null;
+	public Cliente procurarFornecedor(Integer codigo) throws ClienteNaoEncontradoException{
+
+		return controladorCliente.procurar(codigo);
+
 	}
 
-	public boolean existeCliente(Integer codigo) {
-		
-		return false;
+	public ArrayList<Cliente> listaCliente() {
+
+		return controladorCliente.listar();
+
 	}
 
-	public ArrayList<Cliente> listar() {
-		
-		return this.controladorCliente.listar();
+	public ControladorCliente getControladorCliente() {
+		return controladorCliente;
+	}
+
+	public void setControladorCliente(
+			ControladorCliente controladorCliente) {
+		this.controladorCliente = controladorCliente;
 	}
 	//Fim CRUD Cliente.
 
