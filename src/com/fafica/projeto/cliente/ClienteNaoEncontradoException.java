@@ -6,7 +6,7 @@ public class ClienteNaoEncontradoException extends Exception {
 		super ("Cliente Não Encontrado");
 	}
 	
-	public ClienteNaoEncontradoException(String msg1){
-		super ("Cliente" + msg1 + "Não Encontrado");
+	public ClienteNaoEncontradoException(String msg){
+		super ("Cliente" + msg + "Não Encontrado");
 	}
 }

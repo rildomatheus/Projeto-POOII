@@ -2,6 +2,7 @@ package com.fafica.projeto.fachada;
 
 import java.util.ArrayList;
 
+import com.fafica.projeto.cliente.CampoObritarorioInvalidoException;
 import com.fafica.projeto.cliente.Cliente;
 import com.fafica.projeto.cliente.ClienteJaCadastradoException;
 import com.fafica.projeto.cliente.ClienteNaoEncontradoException;
@@ -26,7 +27,7 @@ public class Fachada {
 	}
 	
 	// Inicio CRUD Cliente
-	public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException  {
+	public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException, CampoObritarorioInvalidoException  {
 		
 		this.controladorCliente.cadastrar(cliente);
 		
@@ -43,13 +44,18 @@ public class Fachada {
 		return false;
 	}
 
-	public Cliente procurarFornecedor(Integer codigo) throws ClienteNaoEncontradoException{
+	public Cliente procurarCliente(Integer codigo) throws ClienteNaoEncontradoException{
 
 		return controladorCliente.procurar(codigo);
 
 	}
+	
+	public boolean existeCliente(Integer codigo) {
 
-	public ArrayList<Cliente> listaCliente() {
+		return controladorCliente.existe(codigo);
+	}
+
+	public ArrayList<Cliente> listarCliente() {
 
 		return controladorCliente.listar();
 

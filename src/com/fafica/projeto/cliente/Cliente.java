@@ -2,29 +2,28 @@ package com.fafica.projeto.cliente;
 
 public class Cliente {
 	
-	private Integer codigo;
+	private int codigo;
 	private String nome;
-	private Integer loja;
+	private int loja;
 	
-	
-	 public Cliente(String nome, Integer loja){
+	 public Cliente( String nome, int loja){
 		 this.setNome(nome);
 		 this.setLoja(loja);
 	 }
 	 
-	public Cliente(Integer codigo, String nome, Integer loja){
+	public Cliente(int codigo, String nome, int loja){
 		 this.setCodigo(codigo);
 		 this.setNome(nome);
 		 this.setLoja(loja);
 	}
 	 
-	public Integer getCodigo() {
+	public int getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}
@@ -32,18 +31,14 @@ public class Cliente {
 		this.nome = nome;
 	}
 	
-	public Integer getLoja(){
+	public int getLoja(){
 		return loja;
 	}
-	public void setLoja(Integer loja){
+	public void setLoja(int loja){
 		this.loja = loja;
 	}
 	
 	public String toString(){
 		return "[Cliente= " + " Codigo:"+codigo + " Nome:"+nome + " Loja:"+loja + "]";
 	 }
-
-	public void add(Cliente cliente) {
-			
-	}
 }

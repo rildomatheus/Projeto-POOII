@@ -15,7 +15,7 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 		}
 		
 		
-		public void cadastrar(Cliente cliente)throws ClienteJaCadastradoException{
+		public void cadastrar(Cliente cliente)throws ClienteJaCadastradoException, CampoObritarorioInvalidoException{
 		    
 		    this.repositorioCliente.cadastrar(cliente);
 			
@@ -30,18 +30,19 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 		}
 
 		
-		public boolean remover(Integer codigo) throws ClienteNaoEncontradoException{
+		public void remover(int codigo) throws ClienteNaoEncontradoException{
 			
-			return repositorioCliente.existe(codigo);		}
+			this.repositorioCliente.existe(codigo);		
+		}
 
 		
-		public Cliente procurar(Integer codigo) throws ClienteNaoEncontradoException{
+		public Cliente procurar(int codigo) throws ClienteNaoEncontradoException{
 			
 			return repositorioCliente.procurar(codigo);
 		}
 
 		
-		public boolean existe(Integer codigo) {
+		public boolean existe(int codigo) {
 			
 			return repositorioCliente.existe(codigo);
 		}
@@ -51,9 +52,6 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 			
 			return repositorioCliente.listar();
 			
-		}
-
-		
-		
+		}	
 }
 

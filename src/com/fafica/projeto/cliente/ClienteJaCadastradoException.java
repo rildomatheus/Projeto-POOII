@@ -6,7 +6,7 @@ public class ClienteJaCadastradoException extends Exception {
 		super ("Cliente Já Cadastrado");
 	}
 	
-	public ClienteJaCadastradoException(String msg2){
-		super ("Cliente" + msg2 + "Já Cadastrado");
+	public ClienteJaCadastradoException(String msg){
+		super ("Cliente " + msg + " Já Cadastrado");
 	}
 }
