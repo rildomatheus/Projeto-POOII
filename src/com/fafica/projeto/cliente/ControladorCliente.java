@@ -18,28 +18,33 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 		public void cadastrar(Cliente cliente)throws ClienteJaCadastradoException, CampoObritarorioInvalidoException{
 			if (cliente.getNome() == null) throw new CampoObritarorioInvalidoException(" Nome ");
 			if (cliente.getNome() == " ") throw new CampoObritarorioInvalidoException(" Nome ");
-		    this.repositorioCliente.cadastrar(cliente);
+		    repositorioCliente.cadastrar(cliente);
 			
 		}
 
 		
 		public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException  {
 			
-			
-			this.repositorioCliente.atualizar(cliente);
+			if(!existe(cliente.getCodigo())) throw new ClienteNaoEncontradoException();
+			repositorioCliente.atualizar(cliente);
 			
 		}
 
 		
 		public void remover(int codigo) throws ClienteNaoEncontradoException{
-			
-			this.repositorioCliente.existe(codigo);		
+			if(codigo == codigo){
+			 repositorioCliente.remover(codigo);
+			}else{
+			throw new ClienteNaoEncontradoException();
+			}
 		}
-
 		
 		public Cliente procurar(int codigo) throws ClienteNaoEncontradoException{
-			
+			if(codigo == codigo){
 			return repositorioCliente.procurar(codigo);
+			}else{
+				throw new ClienteNaoEncontradoException();
+			}
 		}
 
 		

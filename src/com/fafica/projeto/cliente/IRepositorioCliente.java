@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 		public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException;
 		public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException;
-		public void remover(int codigo) throws ClienteNaoEncontradoException;
+		public void remover(int codigo) throws ClienteNaoEncontradoException ;
 		public Cliente procurar(int codigo) throws ClienteNaoEncontradoException;
 		public boolean existe(int codigo);
 		public ArrayList<Cliente> listar();

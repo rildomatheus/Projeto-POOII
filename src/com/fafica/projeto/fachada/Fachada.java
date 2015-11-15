@@ -29,28 +29,26 @@ public class Fachada {
 	// Inicio CRUD Cliente
 	public void cadastrarCliente(Cliente cliente) throws ClienteJaCadastradoException, CampoObritarorioInvalidoException  {
 		
-		this.controladorCliente.cadastrar(cliente);
-		
-		
+		controladorCliente.cadastrar(cliente);
 	}
 
 	public void atualizarCliente(Cliente cliente) throws ClienteNaoEncontradoException  {
 		
-		this.controladorCliente.atualizar(cliente);
+		controladorCliente.atualizar(cliente);
 	}
 
-	public void removerCliente(Integer codigo) throws ClienteNaoEncontradoException{
+	public void removerCliente(int codigo) throws ClienteNaoEncontradoException, CampoObritarorioInvalidoException{
 		
-		 this.controladorCliente.remover(codigo);
+		  controladorCliente.remover(codigo);
 	}
 
-	public Cliente procurarCliente(Integer codigo) throws ClienteNaoEncontradoException{
+	public Cliente procurarCliente(int codigo) throws ClienteNaoEncontradoException{
 
 		return controladorCliente.procurar(codigo);
 
 	}
 	
-	public boolean existeCliente(Integer codigo) {
+	public boolean existeCliente(int codigo) {
 
 		return controladorCliente.existe(codigo);
 	}
@@ -59,15 +57,6 @@ public class Fachada {
 
 		return controladorCliente.listar();
 
-	}
-
-	public ControladorCliente getControladorCliente() {
-		return controladorCliente;
-	}
-
-	public void setControladorCliente(
-			ControladorCliente controladorCliente) {
-		this.controladorCliente = controladorCliente;
 	}
 	//Fim CRUD Cliente.
 

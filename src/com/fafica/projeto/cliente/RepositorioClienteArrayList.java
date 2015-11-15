@@ -23,20 +23,18 @@ public class RepositorioClienteArrayList implements IRepositorioCliente{
 	@Override
 	public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException {
 		
-		if(!existe(cliente.getCodigo())){
-			throw new ClienteNaoEncontradoException();
-		}
-		for(Cliente clientes : arrayListCliente){
-			if(clientes.getCodigo() == clientes.getCodigo()){
-				arrayListCliente.remove(clientes);
-				arrayListCliente.add(clientes);
+		
+		for(Cliente cliente1 : arrayListCliente){
+			if(cliente1.getCodigo() == cliente.getCodigo()){
+				arrayListCliente.remove(cliente1);
+				arrayListCliente.add(cliente);
 			}
 		}
 	}
 
 	@Override
 	public void remover(int codigo) throws ClienteNaoEncontradoException{
-	
+		
 		for(Cliente cliente : arrayListCliente){
 			if(cliente.getCodigo() == codigo){
 				arrayListCliente.remove(cliente);
@@ -48,15 +46,11 @@ public class RepositorioClienteArrayList implements IRepositorioCliente{
 	public Cliente procurar(int codigo) throws ClienteNaoEncontradoException{
 		
 		for(Cliente cliente : arrayListCliente){
-			if(codigo == cliente.getCodigo()){
+			if(cliente.getCodigo() == codigo){
 				return cliente;
 			}
-			else{
-				throw new ClienteNaoEncontradoException();
-			}
 		}
-		return null;
-		
+		throw new ClienteNaoEncontradoException();
 	}
 
 	@Override
