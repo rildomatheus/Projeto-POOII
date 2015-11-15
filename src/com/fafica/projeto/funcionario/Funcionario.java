@@ -2,16 +2,16 @@ package com.fafica.projeto.funcionario;
 
 public class Funcionario {
 	
-	private Integer codigo;
-	private String nome;
+	protected int codigo;
+	protected String nome;
 
-	public Funcionario(Integer codigo, String nome){
+	public Funcionario(int codigo, String nome){
 		this.setCodigo(codigo);
 		this.setNome(nome);		
 	}
 	
-	public void setCodigo(Integer codigo) {this.codigo = codigo;}
-	public Integer getCodigo(){return codigo;}
+	public void setCodigo(int codigo) {this.codigo = codigo;}
+	public int getCodigo(){return codigo;}
 
 	public void setNome(String nome){this.nome = nome;}
 	public String  getNome(){return nome;}

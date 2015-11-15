@@ -4,42 +4,44 @@ import java.util.ArrayList;
 
 public class ControladorAdministrador {
 	
-		
+	IRepositorioAdministrador repositorioAdministrador;
+	
 		public ControladorAdministrador(){
-			
+			this.repositorioAdministrador = new RepositorioAdministradorArrayList();
 			
 		}
 		
 		public void cadastrar(Administrador administrador){
 			
-			System.out.println("");
+			
+			this.repositorioAdministrador.cadastrar(administrador);
 		}
 
 		public void atualizar(Administrador administrador){
 			
-			return;
+			this.repositorioAdministrador.atualizar(administrador);
 			
 		}
 		
-		public boolean remover(Integer codigo){
+		public void remover(int codigo){
 			
-			return false;
-			
-		}
-		
-		public Administrador procurar(Integer codigo){
-			return null;
+			this.repositorioAdministrador.remover(codigo);
 			
 		}
 		
-		public boolean existe(Integer codigo){
+		public Administrador procurar(int codigo){
 			
-			return false;
+			return repositorioAdministrador.procurar(codigo);
+		}
+		
+		public boolean existe(int codigo){
+			
+			return repositorioAdministrador.existe(codigo);
 		}
 		
 		public ArrayList<Administrador>listar(){
 			
-			return null;
+			return repositorioAdministrador.listar();
 		}
 	
 

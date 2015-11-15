@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class RepositorioAdministradorArray implements IRepositorioAdministrador{
 	
-	//private ArrayList<Administrador> arrayListAdministrador;
-	//private Integer codigo;
+	private ArrayList<Administrador> arrayListAdministrador;
+	private int id;
 	
 	public RepositorioAdministradorArray(){
 		

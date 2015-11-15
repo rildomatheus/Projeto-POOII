@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public interface IRepositorioAdministrador {
 	
-	public void cadastradar(Administrador adminstrador);
+	public void cadastrar(Administrador adminstrador);
 	public void atualizar(Administrador administrador);
-	public boolean remover(Integer codigo);
-	public Administrador procurar(Integer codigo);
-	public boolean existe(Integer codigo);
+	public void remover(int codigo);
+	public Administrador procurar(int codigo);
+	public boolean existe(int codigo);
 	public ArrayList<Administrador>listar();
 
 
