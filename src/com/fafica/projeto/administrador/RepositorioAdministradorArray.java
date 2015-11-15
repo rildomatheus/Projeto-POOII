@@ -9,46 +9,68 @@ public class RepositorioAdministradorArray implements IRepositorioAdministrador{
 	
 	public RepositorioAdministradorArray(){
 		
-		//arrayListAdministrador = new ArrayList<Administrador>();
+		arrayListAdministrador = new ArrayList<Administrador>();
+		id = 1;
 
 		}
 	
-	public void cadastradar(Administrador adminstrador) {
+	public void cadastrar(Administrador administrador) {
 	
-		return;
+		administrador.setCodigo(id);
+		arrayListAdministrador.add(administrador);
+		id++;
 		
 	}
 	
 	public void atualizar(Administrador administrador){
 		
-		return;
+		for(Administrador administrador1 : arrayListAdministrador){
+			if(administrador1.getCodigo() == administrador.getCodigo()){
+				arrayListAdministrador.remove(administrador1);
+				arrayListAdministrador.add(administrador);
+				
+			}
+		}
 	}
 	
-	public boolean remover(Integer codigo){
+	public void remover(int codigo){
 		
-		return true;
+		for(Administrador administrador : arrayListAdministrador){
+			if(administrador.getCodigo() == codigo){
+				arrayListAdministrador.remove(administrador);
+				
+				
+			}
+		}
+	
 
 	}
 	
-	public Administrador procurar(Integer codigo){
+	public Administrador procurar(int codigo){
 		
-		return null;
-		
+	    for(Administrador administrador : arrayListAdministrador){
+	    	if(administrador.getCodigo() == codigo){
+	    		return administrador;
+	    	}	
+	    }
+		return null; //tratar exceçao	
 	}
 	
-	public boolean existe(Integer codigo) {
-		
-		return false;
+	public boolean existe(int codigo) {
+		for(Administrador administrador : arrayListAdministrador){
+			if(codigo == administrador.getCodigo()){
+				return true;
+			}
+		}
+		return false; 
 	}
 	
 	
 	public ArrayList<Administrador>listar(){
 		
-		return null;
+		return arrayListAdministrador;
 		
 	}
-
-	
 
 }
 

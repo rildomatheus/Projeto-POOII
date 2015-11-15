@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface IRepositorioAdministrador {
 	
-	public void cadastrar(Administrador adminstrador);
+	public void cadastrar(Administrador administrador);
 	public void atualizar(Administrador administrador);
 	public void remover(int codigo);
 	public Administrador procurar(int codigo);

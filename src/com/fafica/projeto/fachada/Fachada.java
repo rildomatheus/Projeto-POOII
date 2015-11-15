@@ -2,6 +2,8 @@ package com.fafica.projeto.fachada;
 
 import java.util.ArrayList;
 
+import com.fafica.projeto.administrador.Administrador;
+import com.fafica.projeto.administrador.ControladorAdministrador;
 import com.fafica.projeto.cliente.CampoObritarorioInvalidoException;
 import com.fafica.projeto.cliente.Cliente;
 import com.fafica.projeto.cliente.ClienteJaCadastradoException;
@@ -12,10 +14,12 @@ public class Fachada {
 	
 	private static Fachada instance;
 	private ControladorCliente controladorCliente;
+	private ControladorAdministrador controladorAdministrador;
 	
 	
 	private Fachada() {
 		this.controladorCliente = new ControladorCliente();
+		this.controladorAdministrador = new ControladorAdministrador();
 	}
 
 	// instanciando a fachada
@@ -59,5 +63,41 @@ public class Fachada {
 
 	}
 	//Fim CRUD Cliente.
+   
+	//Inicio CRUD Administrador.
+	
+	public void cadastrarAdministrador(Administrador administrador){
+	
+		controladorAdministrador.cadastrar(administrador);
+		
+	}
+	
+	public void atualizarAdministrador(Administrador administrador){
+		
+		controladorAdministrador.atualizar(administrador);
+		
+	}
+	
+	public void removerAdministrador(int codigo){
+		
+		controladorAdministrador.remover(codigo);
+	}
+	
+	public Administrador procurarAdministrador(int codigo){
+		
+		return controladorAdministrador.procurar(codigo);
+	}
+	
+	public boolean existeAdministrador(int codigo){
+		
+		return controladorAdministrador.existe(codigo);
+	}
+	
+	public ArrayList<Administrador>list(){
+		
+		return controladorAdministrador.listar();
+	}
 
+	//Fim CRUD administrador.
 }
+
