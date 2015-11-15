@@ -17,7 +17,7 @@ public class Funcionario {
 	public String  getNome(){return nome;}
 
 	public String toString(){
-		return "Nome: " +nome+ ". Codigo: "+codigo;
+		return "Nome: " +nome+ " | Codigo: "+codigo+" |\n";
 	}
 
 }

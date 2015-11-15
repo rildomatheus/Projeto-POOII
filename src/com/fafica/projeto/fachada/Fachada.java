@@ -1,6 +1,7 @@
 package com.fafica.projeto.fachada;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.fafica.projeto.administrador.Administrador;
 import com.fafica.projeto.administrador.ControladorAdministrador;
@@ -9,17 +10,24 @@ import com.fafica.projeto.cliente.Cliente;
 import com.fafica.projeto.cliente.ClienteJaCadastradoException;
 import com.fafica.projeto.cliente.ClienteNaoEncontradoException;
 import com.fafica.projeto.cliente.ControladorCliente;
+import com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException;
+import com.fafica.projeto.funcionario.ControladorFuncionario;
+import com.fafica.projeto.funcionario.Funcionario;
+import com.fafica.projeto.funcionario.FuncionarioJaCadastradoException;
+import com.fafica.projeto.funcionario.FuncionarioNaoEncontradoException;
 
 public class Fachada {
 	
 	private static Fachada instance;
 	private ControladorCliente controladorCliente;
 	private ControladorAdministrador controladorAdministrador;
+	private ControladorFuncionario controladorFuncionario;
 	
 	
 	private Fachada() {
 		this.controladorCliente = new ControladorCliente();
 		this.controladorAdministrador = new ControladorAdministrador();
+		this.controladorFuncionario = new ControladorFuncionario();
 	}
 
 	// instanciando a fachada
@@ -99,5 +107,27 @@ public class Fachada {
 	}
 
 	//Fim CRUD administrador.
+	
+	//Funcionário
+	
+	public void cadastrarFuncionario(Funcionario funcionario) throws IllegalArgumentException, CampoObrigatorioInvalidoException, FuncionarioJaCadastradoException{
+		this.controladorFuncionario.cadastrar(funcionario);
+	}
+	
+	public void atualizarFuncionario(Funcionario funcionario) throws IllegalArgumentException, CampoObrigatorioInvalidoException, FuncionarioNaoEncontradoException{
+		this.controladorFuncionario.atualizar(funcionario);
+	}
+	
+	public void removerFuncionario(Integer codigo) throws FuncionarioNaoEncontradoException, CampoObrigatorioInvalidoException{
+		this.controladorFuncionario.remover(codigo);
+	}
+	
+	public Funcionario procurarFuncionario(Integer codigo) throws FuncionarioNaoEncontradoException, CampoObrigatorioInvalidoException{
+		return this.controladorFuncionario.procurar(codigo);
+	}
+	
+	public List<Funcionario> listarFuncionario(){
+		return this.controladorFuncionario.listar();
+	}
 }
 
