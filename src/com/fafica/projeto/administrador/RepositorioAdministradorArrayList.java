@@ -2,12 +2,12 @@ package com.fafica.projeto.administrador;
 
 import java.util.ArrayList;
 
-public class RepositorioAdministradorArray implements IRepositorioAdministrador{
+public class RepositorioAdministradorArrayList implements IRepositorioAdministrador{
 	
 	private ArrayList<Administrador> arrayListAdministrador;
 	private int id;
 	
-	public RepositorioAdministradorArray(){
+	public RepositorioAdministradorArrayList(){
 		
 		arrayListAdministrador = new ArrayList<Administrador>();
 		id = 1;
