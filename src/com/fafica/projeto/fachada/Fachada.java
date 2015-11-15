@@ -39,9 +39,9 @@ public class Fachada {
 		this.controladorCliente.atualizar(cliente);
 	}
 
-	public boolean removerCliente(Integer codigo) throws ClienteNaoEncontradoException{
+	public void removerCliente(Integer codigo) throws ClienteNaoEncontradoException{
 		
-		return false;
+		 this.controladorCliente.remover(codigo);
 	}
 
 	public Cliente procurarCliente(Integer codigo) throws ClienteNaoEncontradoException{

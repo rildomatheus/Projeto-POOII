@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 	public interface IRepositorioCliente {
 
-		public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException, CampoObritarorioInvalidoException;
+		public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException;
 		public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException;
 		public void remover(int codigo) throws ClienteNaoEncontradoException;
 		public Cliente procurar(int codigo) throws ClienteNaoEncontradoException;

@@ -5,19 +5,20 @@ import java.util.ArrayList;
 public class RepositorioClienteArrayList implements IRepositorioCliente{
 
 	private ArrayList<Cliente> arrayListCliente;
-	private int id;
+	
 	
 	public RepositorioClienteArrayList() {
 		arrayListCliente = new ArrayList<Cliente>();
-		id = 1;
+	
 	}
 	@Override
-	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException, CampoObritarorioInvalidoException{
-		
-		if (cliente.getNome() == null) throw new CampoObritarorioInvalidoException(" Nome ");
-		if (cliente.getNome() == " ") throw new CampoObritarorioInvalidoException(" Nome ");
-		 arrayListCliente.add(cliente);
+	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException{
+		if(!existe(cliente.getCodigo())){
+			arrayListCliente.add(cliente);
+		}else{
+			throw new ClienteJaCadastradoException();
 		}
+	}
 
 	@Override
 	public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException {
@@ -55,6 +56,7 @@ public class RepositorioClienteArrayList implements IRepositorioCliente{
 			}
 		}
 		return null;
+		
 	}
 
 	@Override
@@ -73,16 +75,4 @@ public class RepositorioClienteArrayList implements IRepositorioCliente{
 		return arrayListCliente;
 		
 	}
-	
-	   private int getId(int codigo) {
-	        int aux = -1;
-	        boolean aux1 = false;
-	        for (int i = 0; !aux1 && (i < id); i = i + 1) {
-	            if (arrayListCliente.get(i).equals(codigo)) {
-	                aux = i;
-	                aux1 = true;
-	            }
-	        }
-	        return aux;
-	    }
 }

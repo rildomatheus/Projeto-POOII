@@ -6,7 +6,7 @@ public class Cliente {
 	private String nome;
 	private int loja;
 	
-	 public Cliente( String nome, int loja){
+	 public Cliente(String nome, int loja){
 		 this.setNome(nome);
 		 this.setLoja(loja);
 	 }

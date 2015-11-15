@@ -16,7 +16,8 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 		
 		
 		public void cadastrar(Cliente cliente)throws ClienteJaCadastradoException, CampoObritarorioInvalidoException{
-		    
+			if (cliente.getNome() == null) throw new CampoObritarorioInvalidoException(" Nome ");
+			if (cliente.getNome() == " ") throw new CampoObritarorioInvalidoException(" Nome ");
 		    this.repositorioCliente.cadastrar(cliente);
 			
 		}
