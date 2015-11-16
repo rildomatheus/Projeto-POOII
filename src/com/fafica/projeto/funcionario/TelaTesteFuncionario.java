@@ -46,7 +46,7 @@ public class TelaTesteFuncionario {
 		}
 		
 		try{
-			System.out.println(fachada.procurarFuncionario(4125));
+			System.out.println(fachada.procurarFuncionario(4126));
 		} catch (FuncionarioNaoEncontradoException e) {
 			System.out.println(e.getMessage());
 		} catch (CampoObrigatorioInvalidoException e) {
@@ -54,6 +54,8 @@ public class TelaTesteFuncionario {
 		} catch (Exception e){
 			System.out.println("ERROR!");
 		} 
+		
+		System.out.println(fachada.listarFuncionario());
 	}
 
 }
