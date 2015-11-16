@@ -32,6 +32,7 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 
 		
 		public void remover(int codigo) throws ClienteNaoEncontradoException{
+			
 			if(codigo == codigo){
 			 repositorioCliente.remover(codigo);
 			}else{

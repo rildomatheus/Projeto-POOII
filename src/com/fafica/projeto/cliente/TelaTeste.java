@@ -41,13 +41,7 @@ public class TelaTeste {
 		}
 		
 		try {
-			System.out.println(fachada.procurarCliente(2));
-		} catch (ClienteNaoEncontradoException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.getMessage());
-		}
-		try {
-			fachada.removerCliente(2);
+			fachada.removerCliente(1);
 		} catch (ClienteNaoEncontradoException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
@@ -56,10 +50,14 @@ public class TelaTeste {
 			System.out.println(e.getMessage());
 		}
 		
-		System.out.println(fachada.existeCliente(2));
+	System.out.println(fachada.existeCliente(2));
+	
+	try {
+		System.out.println(fachada.procurarCliente(2));
+	} catch (ClienteNaoEncontradoException e) {
+		// TODO Auto-generated catch block
+		System.out.println(e.getMessage());
 
-		
-		System.out.println(fachada.listarCliente());
-		
+	}
 	}
 }

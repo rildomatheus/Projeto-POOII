@@ -2,6 +2,9 @@ package com.fafica.projeto.cliente;
 
 import java.util.ArrayList;
 
+import com.fafica.projeto.funcionario.Funcionario;
+import com.fafica.projeto.funcionario.FuncionarioNaoEncontradoException;
+
 public class RepositorioClienteArrayList implements IRepositorioCliente{
 
 	private ArrayList<Cliente> arrayListCliente;
@@ -13,11 +16,8 @@ public class RepositorioClienteArrayList implements IRepositorioCliente{
 	}
 	@Override
 	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException{
-		if(!existe(cliente.getCodigo())){
+		if(existe(cliente.getCodigo())) throw new ClienteJaCadastradoException();
 			arrayListCliente.add(cliente);
-		}else{
-			throw new ClienteJaCadastradoException();
-		}
 	}
 
 	@Override
@@ -35,19 +35,25 @@ public class RepositorioClienteArrayList implements IRepositorioCliente{
 	@Override
 	public void remover(int codigo) throws ClienteNaoEncontradoException{
 		
-		for(Cliente cliente : arrayListCliente){
-			if(cliente.getCodigo() == codigo){
-				arrayListCliente.remove(cliente);
+		if(existe(codigo)){
+			Cliente clienteRemover = null;
+			for(Cliente clienteBusca : arrayListCliente){
+				if(clienteBusca.getCodigo() == codigo){
+					clienteRemover = clienteBusca;
+				}
+			
 			}
-		}
+			arrayListCliente.remove(clienteRemover);
+			System.out.println("Cliente removido com sucesso!");
+		} else throw new ClienteNaoEncontradoException();	
 	}
 
 	@Override
 	public Cliente procurar(int codigo) throws ClienteNaoEncontradoException{
-		
-		for(Cliente cliente : arrayListCliente){
-			if(cliente.getCodigo() == codigo){
-				return cliente;
+		if(!existe(codigo))throw new ClienteNaoEncontradoException();
+		for(Cliente clienteBusca : arrayListCliente){
+			if(clienteBusca.getCodigo() == codigo){
+				return clienteBusca;
 			}
 		}
 		throw new ClienteNaoEncontradoException();
