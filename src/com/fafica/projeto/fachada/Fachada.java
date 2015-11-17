@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fafica.projeto.administrador.Administrador;
+import com.fafica.projeto.administrador.AdministradorJaCadastradoException;
+import com.fafica.projeto.administrador.AdministradorNaoEncontradoException;
 import com.fafica.projeto.administrador.ControladorAdministrador;
 import com.fafica.projeto.cliente.CampoObritarorioInvalidoException;
 import com.fafica.projeto.cliente.Cliente;
@@ -71,39 +73,39 @@ public class Fachada {
 
 	}
 	//Fim CRUD Cliente.
-   
+  
 	//Inicio CRUD Administrador.
 	
-	public void cadastrarAdministrador(Administrador administrador){
+	public void cadastrarAdministrador(Administrador administrador) throws IllegalArgumentException, CampoObrigatorioInvalidoException, AdministradorJaCadastradoException{
 	
-		controladorAdministrador.cadastrar(administrador);
+		this.controladorAdministrador.cadastrar(administrador);
 		
 	}
 	
-	public void atualizarAdministrador(Administrador administrador){
+	public void atualizarAdministrador(Administrador administrador) throws IllegalArgumentException, CampoObrigatorioInvalidoException, AdministradorNaoEncontradoException{
 		
-		controladorAdministrador.atualizar(administrador);
+		this.controladorAdministrador.atualizar(administrador);
 		
 	}
 	
-	public void removerAdministrador(int codigo){
+	public void removerAdministrador(int codigo) throws AdministradorNaoEncontradoException, CampoObrigatorioInvalidoException{
 		
-		controladorAdministrador.remover(codigo);
+		this.controladorAdministrador.remover(codigo);
 	}
 	
-	public Administrador procurarAdministrador(int codigo){
+	public Administrador procurarAdministrador(int codigo) throws AdministradorNaoEncontradoException, CampoObrigatorioInvalidoException{
 		
-		return controladorAdministrador.procurar(codigo);
+		return this.controladorAdministrador.procurar(codigo);
 	}
 	
 	public boolean existeAdministrador(int codigo){
 		
-		return controladorAdministrador.existe(codigo);
+		return this.controladorAdministrador.existe(codigo);
 	}
 	
 	public ArrayList<Administrador> listarAdministrador(){
 		
-		return controladorAdministrador.listar();
+		return this.controladorAdministrador.listar();
 	}
 
 	//Fim CRUD administrador.

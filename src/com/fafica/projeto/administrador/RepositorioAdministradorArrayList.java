@@ -2,10 +2,11 @@ package com.fafica.projeto.administrador;
 
 import java.util.ArrayList;
 
+
 public class RepositorioAdministradorArrayList implements IRepositorioAdministrador{
 	
 	private ArrayList<Administrador> arrayListAdministrador;
-	private int id;
+	//private int id;
 	
 	public RepositorioAdministradorArrayList(){
 		
@@ -13,8 +14,8 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 
 		}
 	
-	public void cadastrar(Administrador administrador) {
-	
+	public void cadastrar(Administrador administrador) throws AdministradorJaCadastradoException{
+		if(existe(administrador.getCodigo())) throw new AdministradorJaCadastradoException();	
 		arrayListAdministrador.add(administrador);
 		System.out.println("Administrador cadastrado com sucesso!");
 		
@@ -33,29 +34,30 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 		}
 	}
 	
-	public void remover(int codigo){
+	public void remover(int codigo) throws AdministradorNaoEncontradoException{
+		if(existe(codigo)){
 		Administrador adm = null;
 		for(Administrador administrador : arrayListAdministrador){
 			if(administrador.getCodigo() == codigo){
 				adm = administrador;
 				
-				
-				
+			  }	
 			}
-		}
+		  
 		arrayListAdministrador.remove(adm);
 		System.out.println("Administrador removido com sucesso!!");
-			
+		
+		}else throw new AdministradorNaoEncontradoException();		
 	}
 	
-	public Administrador procurar(int codigo){
-		
+	public Administrador procurar(int codigo) throws AdministradorNaoEncontradoException{
+		if(existe(codigo)) throw new AdministradorNaoEncontradoException();
 	    for(Administrador administrador : arrayListAdministrador){
 	    	if(administrador.getCodigo() == codigo){
 	    		return administrador;
 	    	}	
-	    }
-		return null; //tratar exceçao	
+	    }	
+	    throw new AdministradorNaoEncontradoException();
 	}
 	
 	public boolean existe(int codigo) {
