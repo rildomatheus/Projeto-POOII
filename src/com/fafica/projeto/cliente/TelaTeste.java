@@ -9,13 +9,12 @@ public class TelaTeste {
 	public static void main(String[] args) {
 		
 		Fachada fachada = Fachada.getInstance();
-		Cliente cliente = new Cliente(1,"Bonanza",1);
-		Cliente cliente2 = new Cliente(2,"Claro",1);
+		Cliente cliente = new Cliente(1,"Bonanza",-1);
+		Cliente cliente2 = new Cliente(-2,"Claro",1);
 	
 		
 		try {
 			fachada.cadastrarCliente(cliente);
-			System.out.println("Cliente Cadastrado Com Sucesso!!");
 		} catch (ClienteJaCadastradoException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
@@ -26,7 +25,6 @@ public class TelaTeste {
 		
 		try {
 			fachada.cadastrarCliente(cliente2);
-			System.out.println("Cliente Cadastrado Com Sucesso!!");
 		} catch (ClienteJaCadastradoException e) {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
@@ -34,6 +32,7 @@ public class TelaTeste {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
+		
 	
 		ArrayList<Cliente> clientes = fachada.listarCliente();
 		for(Cliente c: clientes) {
@@ -50,14 +49,12 @@ public class TelaTeste {
 			System.out.println(e.getMessage());
 		}
 		
-	System.out.println(fachada.existeCliente(2));
-	
-	try {
-		System.out.println(fachada.procurarCliente(2));
-	} catch (ClienteNaoEncontradoException e) {
-		// TODO Auto-generated catch block
-		System.out.println(e.getMessage());
-
-	}
+		try {
+			System.out.println(fachada.procurarCliente(2));
+		} catch (ClienteNaoEncontradoException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
 	}
 }

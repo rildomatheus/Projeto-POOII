@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.fafica.projeto.cliente.IRepositorioCliente;
 import com.fafica.projeto.cliente.RepositorioClienteArrayList;
+import com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException;
 
 	public class ControladorCliente{
 
@@ -12,12 +13,15 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 		
 		public ControladorCliente() {
 			this.repositorioCliente = new RepositorioClienteArrayList();
+			
 		}
 		
 		
 		public void cadastrar(Cliente cliente)throws ClienteJaCadastradoException, CampoObritarorioInvalidoException{
+			if (cliente.getCodigo() <= 0) throw new CampoObritarorioInvalidoException(" Codigo ");
 			if (cliente.getNome() == null) throw new CampoObritarorioInvalidoException(" Nome ");
 			if (cliente.getNome() == " ") throw new CampoObritarorioInvalidoException(" Nome ");
+			if (cliente.getLoja() <= 0) throw new CampoObritarorioInvalidoException(" Loja ");
 		    repositorioCliente.cadastrar(cliente);
 			
 		}

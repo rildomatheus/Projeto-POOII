@@ -18,6 +18,7 @@ public class RepositorioClienteArrayList implements IRepositorioCliente{
 	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException{
 		if(existe(cliente.getCodigo())) throw new ClienteJaCadastradoException();
 			arrayListCliente.add(cliente);
+			
 	}
 
 	@Override
