@@ -101,7 +101,7 @@ public class Fachada {
 		return controladorAdministrador.existe(codigo);
 	}
 	
-	public ArrayList<Administrador>list(){
+	public ArrayList<Administrador> listarAdministrador(){
 		
 		return controladorAdministrador.listar();
 	}

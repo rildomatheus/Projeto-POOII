@@ -10,15 +10,12 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 	public RepositorioAdministradorArrayList(){
 		
 		arrayListAdministrador = new ArrayList<Administrador>();
-		id = 1;
 
 		}
 	
 	public void cadastrar(Administrador administrador) {
 	
-		administrador.setCodigo(id);
 		arrayListAdministrador.add(administrador);
-		id++;
 		
 	}
 	

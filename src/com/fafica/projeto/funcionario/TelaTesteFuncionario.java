@@ -24,7 +24,7 @@ public class TelaTesteFuncionario {
 		} catch (Exception e){
 			System.out.println("ERROR!");
 		}
-
+		
 		try {
 			fachada.atualizarFuncionario(funcionario3);
 		} catch (IllegalArgumentException e) {
@@ -36,7 +36,7 @@ public class TelaTesteFuncionario {
 		}
 		
 		try {
-			fachada.removerFuncionario(4123);
+			fachada.removerFuncionario(4125);
 		} catch (FuncionarioNaoEncontradoException e) {
 			System.out.println(e.getMessage());
 		} catch (CampoObrigatorioInvalidoException e) {
@@ -44,7 +44,7 @@ public class TelaTesteFuncionario {
 		} catch (Exception e){
 			System.out.println("ERROR!");
 		}
-		
+		/*
 		try{
 			System.out.println(fachada.procurarFuncionario(4126));
 		} catch (FuncionarioNaoEncontradoException e) {
@@ -53,7 +53,7 @@ public class TelaTesteFuncionario {
 			System.out.println(e.getMessage());
 		} catch (Exception e){
 			System.out.println("ERROR!");
-		} 
+		} */
 		
 		System.out.println(fachada.listarFuncionario());
 	}

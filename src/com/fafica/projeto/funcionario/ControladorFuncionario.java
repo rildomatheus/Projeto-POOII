@@ -8,7 +8,7 @@ public class ControladorFuncionario{
 		private IRepositorioFuncionario repositorioFuncionario;
 		
 		public ControladorFuncionario(){
-			repositorioFuncionario = new RepositorioFuncionarioMap();
+			repositorioFuncionario = new RepositorioFuncionarioArrayList();
 		}
 		
 		public void cadastrar(Funcionario funcionario) throws IllegalArgumentException, CampoObrigatorioInvalidoException, FuncionarioJaCadastradoException{

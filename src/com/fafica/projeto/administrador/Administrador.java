@@ -3,8 +3,9 @@ package com.fafica.projeto.administrador;
 import com.fafica.projeto.funcionario.Funcionario;
 
 public class Administrador extends Funcionario{
+	
 
-	public Administrador(Integer codigo, String nome) {
+	public Administrador(int codigo, String nome) {
 		super(codigo, nome);
 		
 	}
@@ -12,7 +13,7 @@ public class Administrador extends Funcionario{
 	public int getCodigo() {
 		return codigo;
 	}
-
+	
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
@@ -27,7 +28,7 @@ public class Administrador extends Funcionario{
 	}
 	
 	public String toString() {
-		return "Administrador [codigo=" + codigo + ", nome=" + nome + "]";
+		return "Administrador [codigo=" + codigo + ", nome=" + nome +"]" ;
 	}
 	
 	
