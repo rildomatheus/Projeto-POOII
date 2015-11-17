@@ -7,12 +7,14 @@ public class TelaTesteAdministrador {
 		
 		Administrador adm = new Administrador(3456,"Rildo Matheus");
 		Administrador adm1 = new Administrador(3457,"Rildo Matheus");
-		Administrador adm2 = new Administrador(3458,"Rildo Matheus");
+		Administrador adm2 = new Administrador(3458,"Sr. Rildo Matheus");
 		Fachada fachada = Fachada.getInstance();
 		
 		fachada.cadastrarAdministrador(adm);
 		fachada.cadastrarAdministrador(adm1);
 		fachada.cadastrarAdministrador(adm2);
+		fachada.atualizarAdministrador(adm2);
+		fachada.removerAdministrador(3458);
 		System.out.println(fachada.listarAdministrador());
 	}
 

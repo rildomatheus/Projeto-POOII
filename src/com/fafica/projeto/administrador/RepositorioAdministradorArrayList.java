@@ -16,6 +16,8 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 	public void cadastrar(Administrador administrador) {
 	
 		arrayListAdministrador.add(administrador);
+		System.out.println("Administrador cadastrado com sucesso!");
+		
 		
 	}
 	
@@ -25,22 +27,25 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 			if(administrador1.getCodigo() == administrador.getCodigo()){
 				arrayListAdministrador.remove(administrador1);
 				arrayListAdministrador.add(administrador);
+				System.out.println("Administrador atualizador com sucesso Cachorrera, poha doida!!");
 				
 			}
 		}
 	}
 	
 	public void remover(int codigo){
-		
+		Administrador adm = null;
 		for(Administrador administrador : arrayListAdministrador){
 			if(administrador.getCodigo() == codigo){
-				arrayListAdministrador.remove(administrador);
+				adm = administrador;
+				
 				
 				
 			}
 		}
-	
-
+		arrayListAdministrador.remove(adm);
+		System.out.println("Administrador removido com sucesso!!");
+			
 	}
 	
 	public Administrador procurar(int codigo){
