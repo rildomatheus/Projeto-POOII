@@ -76,24 +76,24 @@ public class Fachada {
   
 	//Inicio CRUD Administrador.
 	
-	public void cadastrarAdministrador(Administrador administrador) throws IllegalArgumentException, CampoObrigatorioInvalidoException, AdministradorJaCadastradoException{
+	public void cadastrarAdministrador(Administrador administrador) throws IllegalArgumentException, AdministradorJaCadastradoException, CampoObrigatorioInvalidoException, com.fafica.projeto.administrador.CampoObrigatorioInvalidoException{
 	
 		this.controladorAdministrador.cadastrar(administrador);
 		
 	}
 	
-	public void atualizarAdministrador(Administrador administrador) throws IllegalArgumentException, CampoObrigatorioInvalidoException, AdministradorNaoEncontradoException{
+	public void atualizarAdministrador(Administrador administrador) throws IllegalArgumentException, AdministradorNaoEncontradoException, com.fafica.projeto.administrador.CampoObrigatorioInvalidoException{
 		
 		this.controladorAdministrador.atualizar(administrador);
 		
 	}
 	
-	public void removerAdministrador(int codigo) throws AdministradorNaoEncontradoException, CampoObrigatorioInvalidoException{
+	public void removerAdministrador(int codigo) throws AdministradorNaoEncontradoException, com.fafica.projeto.administrador.CampoObrigatorioInvalidoException{
 		
 		this.controladorAdministrador.remover(codigo);
 	}
 	
-	public Administrador procurarAdministrador(int codigo) throws AdministradorNaoEncontradoException, CampoObrigatorioInvalidoException{
+	public Administrador procurarAdministrador(int codigo) throws AdministradorNaoEncontradoException, com.fafica.projeto.administrador.CampoObrigatorioInvalidoException{
 		
 		return this.controladorAdministrador.procurar(codigo);
 	}
