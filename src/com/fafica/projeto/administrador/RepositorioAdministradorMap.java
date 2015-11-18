@@ -3,6 +3,7 @@ package com.fafica.projeto.administrador;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class RepositorioAdministradorMap implements IRepositorioAdministrador {
 
@@ -10,7 +11,7 @@ public class RepositorioAdministradorMap implements IRepositorioAdministrador {
 	
 	public RepositorioAdministradorMap(){
 		
-		administrador = new HashMap<>();
+		adm = new HashMap<>();
 	}
 
 	public void cadastrar(Administrador administrador) throws AdministradorJaCadastradoException {
@@ -56,7 +57,7 @@ public class RepositorioAdministradorMap implements IRepositorioAdministrador {
 	
 	public ArrayList<Administrador> listar() {
 		ArrayList<Administrador>listar = new ArrayList<Administrador>();
-		Set<Integer> keys = adm.KeySet();
+		Set<Integer> keys = adm.keySet();
 		for(Integer key : keys){
 			listar.add(adm.get(key));
 		}
