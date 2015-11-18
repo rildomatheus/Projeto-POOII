@@ -28,7 +28,7 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 			if(administrador1.getCodigo() == administrador.getCodigo()){
 				arrayListAdministrador.remove(administrador1);
 				arrayListAdministrador.add(administrador);
-				System.out.println("Administrador atualizador com sucesso Cachorrera, poha doida!!");
+				System.out.println("Administrador atualizador com sucesso!!");
 				
 			}
 		}
