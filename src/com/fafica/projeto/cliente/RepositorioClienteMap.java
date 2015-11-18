@@ -1,16 +1,15 @@
 package com.fafica.projeto.cliente;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
-
 
 public class RepositorioClienteMap implements IRepositorioCliente{
 	Map<Integer, Cliente> clienteMap;
 	
 	public RepositorioClienteMap(){
-		clienteMap = new TreeMap<Integer, Cliente>();
+		clienteMap = new HashMap<Integer, Cliente>();
 	}
 	@Override
 	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException {

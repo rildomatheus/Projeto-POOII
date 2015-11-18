@@ -2,10 +2,8 @@ package com.fafica.projeto.cliente;
 
 import java.util.ArrayList;
 
-
 import com.fafica.projeto.cliente.IRepositorioCliente;
 import com.fafica.projeto.cliente.RepositorioClienteArrayList;
-import com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException;
 
 	public class ControladorCliente{
 
@@ -13,7 +11,7 @@ import com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException;
 		
 		public ControladorCliente() {
 			this.repositorioCliente = new RepositorioClienteArrayList();
-			
+		
 		}
 		
 		
