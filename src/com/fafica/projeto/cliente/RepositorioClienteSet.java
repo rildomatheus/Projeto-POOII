@@ -2,11 +2,9 @@ package com.fafica.projeto.cliente;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Set;
-
 
 public class RepositorioClienteSet implements IRepositorioCliente{
-	Set<Cliente> clienteSet;
+	HashSet<Cliente> clienteSet;
 	
 	public RepositorioClienteSet(){
 		clienteSet = new HashSet<Cliente>();
