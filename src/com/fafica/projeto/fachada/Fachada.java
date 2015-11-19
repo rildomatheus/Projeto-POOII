@@ -16,6 +16,10 @@ import com.fafica.projeto.cliente.Cliente;
 import com.fafica.projeto.cliente.ClienteJaCadastradoException;
 import com.fafica.projeto.cliente.ClienteNaoEncontradoException;
 import com.fafica.projeto.cliente.ControladorCliente;
+import com.fafica.projeto.estante.ControladorEstante;
+import com.fafica.projeto.estante.Estante;
+import com.fafica.projeto.estante.EstanteJaCadastradaException;
+import com.fafica.projeto.estante.EstanteNaoEncontradaException;
 import com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException;
 import com.fafica.projeto.funcionario.ControladorFuncionario;
 import com.fafica.projeto.funcionario.Funcionario;
@@ -29,6 +33,7 @@ public class Fachada {
 	private ControladorAdministrador controladorAdministrador;
 	private ControladorFuncionario controladorFuncionario;
 	private ControladorCaixa controladorCaixa;
+	private ControladorEstante controladorEstante;
 	
 	
 	private Fachada() {
@@ -36,6 +41,7 @@ public class Fachada {
 		this.controladorAdministrador = new ControladorAdministrador();
 		this.controladorFuncionario = new ControladorFuncionario();
 		this.controladorCaixa = new ControladorCaixa();
+		this.controladorEstante = new ControladorEstante();
 	}
 
 	// instanciando a fachada
@@ -158,6 +164,28 @@ public class Fachada {
 	
 	public ArrayList<Caixa> listarCaixa(){
 		return this.controladorCaixa.listar();
+	}
+
+	//Estante
+	
+	public void cadastrarEstante(Estante estante) throws IllegalArgumentException, CampoObrigatorioInvalidoException, EstanteJaCadastradaException{
+		this.controladorEstante.cadastrar(estante);
+	}
+	
+	public void atualizarEstante(Estante estante) throws IllegalArgumentException, CampoObrigatorioInvalidoException, EstanteNaoEncontradaException{
+		this.controladorEstante.atualizar(estante);
+	}
+	
+	public void removerEstante(int codigo) throws CampoObrigatorioInvalidoException, EstanteNaoEncontradaException{
+		this.controladorEstante.remover(codigo);
+	}
+	
+	public Estante procurarEstante(int codigo) throws CampoObrigatorioInvalidoException, EstanteNaoEncontradaException{
+		return this.controladorEstante.procurar(codigo);
+	}
+	
+	public List<Estante> listarEstante(){
+		return this.controladorEstante.listar();
 	}
 }
 
