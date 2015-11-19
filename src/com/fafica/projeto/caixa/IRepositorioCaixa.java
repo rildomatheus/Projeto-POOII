@@ -6,13 +6,11 @@ import java.util.ArrayList;
 
 public interface IRepositorioCaixa {
 	
-	public void cadastrar(Caixa caixa);
-	public void atualizar(Caixa caixa);
-	public void remover(int codigo) throws CaixaNaoEncontradoException;
-	public Caixa procurar(int codigo) throws CaixaNaoEncontradoException;
-	public Caixa procurarCliente(int codigo) ;
-	public Caixa procurarEstante(int codigo);
-	public boolean existe(int codigo);
+	public void cadastrar(Caixa caixa) throws CaixaJaCadastradaException;
+	public void atualizar(Caixa caixa) throws CaixaNaoEncontradaException;
+	public void remover(int codigo) throws CaixaNaoEncontradaException;
+	public Caixa procurar(int codigo) throws CaixaNaoEncontradaException;
+	public boolean existe(int codigo) throws CaixaNaoEncontradaException;
 	public ArrayList<Caixa> listar();
 	
 }

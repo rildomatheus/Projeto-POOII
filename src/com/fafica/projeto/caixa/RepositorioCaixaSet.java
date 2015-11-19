@@ -17,25 +17,13 @@ public class RepositorioCaixaSet implements IRepositorioCaixa{
 	}
 
 	@Override
-	public void remover(int codigo) throws CaixaNaoEncontradoException {
+	public void remover(int codigo) throws CaixaNaoEncontradaException {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Caixa procurar(int codigo) throws CaixaNaoEncontradoException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Caixa procurarCliente(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Caixa procurarEstante(int codigo) {
+	public Caixa procurar(int codigo) throws CaixaNaoEncontradaException {
 		// TODO Auto-generated method stub
 		return null;
 	}

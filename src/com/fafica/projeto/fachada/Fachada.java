@@ -7,6 +7,10 @@ import com.fafica.projeto.administrador.Administrador;
 import com.fafica.projeto.administrador.AdministradorJaCadastradoException;
 import com.fafica.projeto.administrador.AdministradorNaoEncontradoException;
 import com.fafica.projeto.administrador.ControladorAdministrador;
+import com.fafica.projeto.caixa.Caixa;
+import com.fafica.projeto.caixa.CaixaJaCadastradaException;
+import com.fafica.projeto.caixa.CaixaNaoEncontradaException;
+import com.fafica.projeto.caixa.ControladorCaixa;
 import com.fafica.projeto.cliente.CampoObritarorioInvalidoException;
 import com.fafica.projeto.cliente.Cliente;
 import com.fafica.projeto.cliente.ClienteJaCadastradoException;
@@ -24,12 +28,14 @@ public class Fachada {
 	private ControladorCliente controladorCliente;
 	private ControladorAdministrador controladorAdministrador;
 	private ControladorFuncionario controladorFuncionario;
+	private ControladorCaixa controladorCaixa;
 	
 	
 	private Fachada() {
 		this.controladorCliente = new ControladorCliente();
 		this.controladorAdministrador = new ControladorAdministrador();
 		this.controladorFuncionario = new ControladorFuncionario();
+		this.controladorCaixa = new ControladorCaixa();
 	}
 
 	// instanciando a fachada
@@ -130,6 +136,28 @@ public class Fachada {
 	
 	public List<Funcionario> listarFuncionario(){
 		return this.controladorFuncionario.listar();
+	}
+	
+	//Caixa
+	
+	public void cadastrarCaixa(Caixa caixa) throws CaixaJaCadastradaException, com.fafica.projeto.caixa.CampoObrigatorioInvalidoException{
+		this.controladorCaixa.cadastrar(caixa);
+	}
+	
+	public void atualizarCaixa(Caixa caixa) throws CaixaNaoEncontradaException{
+		this.controladorCaixa.atualizar(caixa);
+	}
+	
+	public void removerCaixa(int codigo) throws CaixaNaoEncontradaException{
+		this.controladorCaixa.remover(codigo);
+	}
+	
+	public Caixa procurarCaixa(int codigo) throws CaixaNaoEncontradaException{
+		return this.controladorCaixa.procurar(codigo);
+	}
+	
+	public ArrayList<Caixa> listarCaixa(){
+		return this.controladorCaixa.listar();
 	}
 }
 

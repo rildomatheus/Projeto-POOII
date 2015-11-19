@@ -5,16 +5,14 @@ import com.fafica.projeto.estante.Estante;
 
 public class Caixa {
 	
-	private	Cliente cliente;
 	private	int codigo;
 	private String descricao;
-	private	Estante estante;
+
 	
-	public Caixa(int codigo, String descricao, Estante estante, Cliente cliente){
+	public Caixa(int codigo, String descricao){
 		this.setCodigo(codigo);
 		this.setDescricao(descricao);
-		this.setEstante(estante);
-		this.setCliente(cliente);
+		
 	}
 	
 	public int getCodigo(){
@@ -31,23 +29,10 @@ public class Caixa {
 		this.descricao = descricao;
 	}
 	
-	public Estante getEstante(){
-		return estante;
-	}
-	public void setEstante(Estante estante){
-		this.estante = estante;
-	}
-	
-	
-	public Cliente getCliente(){
-		return cliente;
-	}
-	public void setCliente(Cliente cliente){
-		this.cliente = cliente;
-	}
+
 	
 	public String toString(){
-		return "Caixa= "+ "Codigo: "+codigo+ " Descrição"+descricao;
+		return "Caixa= "+ "Codigo:"+codigo+ " Descrição:"+descricao;
 	}
 	
 }
