@@ -78,6 +78,38 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 		}else throw new FuncionarioNaoEncontradoException();
 	}
 	
+	
+
+	
+	public void remover(int codigo) throws FuncionarioNaoEncontradoException {
+		funcionarios = recuperarDados();
+		if(existe(codigo)){
+			Funcionario funcionarioRemover = null;
+			for(Funcionario funcionarioBusca : funcionarios){
+				if(funcionarioBusca.getCodigo() == codigo){
+					funcionarioRemover = funcionarioBusca;
+				}
+			
+			}
+			funcionarios.remove(funcionarioRemover);
+			armazenarDadosArray(funcionarios);
+			System.out.println("Funcionário removido com sucesso!");
+		} else throw new FuncionarioNaoEncontradoException();	
+	}
+		
+	
+
+	public Funcionario procurar(int codigo) throws FuncionarioNaoEncontradoException {
+		if(!existe(codigo))throw new FuncionarioNaoEncontradoException();
+		funcionarios = recuperarDados();
+		Funcionario funcionarioProcura = null; 
+		for(Funcionario funcionarioBusca : funcionarios){
+			if(funcionarioBusca.getCodigo() == codigo){
+				funcionarioProcura = funcionarioBusca;
+			}
+		}
+		return funcionarioProcura;
+	}
 	public boolean existe(int codigo){
 		funcionarios = recuperarDados();
 		for(Funcionario funcionarioBusca : funcionarios){
@@ -87,23 +119,11 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 		}
 		return false;
 	}
-
-	@Override
-	public void remover(int codigo) throws FuncionarioNaoEncontradoException {
-		// TODO Auto-generated method stub
+	
+	public List<Funcionario> listar(){
+		funcionarios = recuperarDados();
+		return funcionarios;
 		
-	}
-
-	@Override
-	public Funcionario procurar(int codigo) throws FuncionarioNaoEncontradoException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Funcionario> listar() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 		
 }

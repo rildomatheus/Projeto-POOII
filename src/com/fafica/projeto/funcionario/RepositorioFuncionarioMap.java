@@ -55,7 +55,6 @@ public class RepositorioFuncionarioMap implements IRepositorioFuncionario {
 		for(Integer key : keys){
 			lista.add(funcionarios.get(key));
 		}
-		
 		return lista;
 	}
 }

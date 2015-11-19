@@ -10,7 +10,7 @@ public class TelaTesteFuncionario {
 		Funcionario funcionario2 = new Funcionario(4125, "Zezinho");
 		Funcionario funcionario3 = new Funcionario(4123, "Sheriff Woody");
 		Fachada fachada = Fachada.getInstance();
-		
+		/*
 		try {
 			fachada.cadastrarFuncionario(funcionario);
 			fachada.cadastrarFuncionario(funcionario1);
@@ -37,7 +37,7 @@ public class TelaTesteFuncionario {
 		}
 		/*
 		try {
-			fachada.removerFuncionario(4125);
+			fachada.removerFuncionario(4123);
 		} catch (FuncionarioNaoEncontradoException e) {
 			System.out.println(e.getMessage());
 		} catch (CampoObrigatorioInvalidoException e) {
@@ -47,7 +47,7 @@ public class TelaTesteFuncionario {
 		}
 		/*
 		try{
-			System.out.println(fachada.procurarFuncionario(4126));
+			System.out.println(fachada.procurarFuncionario(4123));
 		} catch (FuncionarioNaoEncontradoException e) {
 			System.out.println(e.getMessage());
 		} catch (CampoObrigatorioInvalidoException e) {
@@ -56,7 +56,8 @@ public class TelaTesteFuncionario {
 			System.out.println("ERROR!");
 		} */
 		
-		//System.out.println(fachada.listarFuncionario());
+			System.out.println(fachada.listarFuncionario());
+	
 	}
 
 }
