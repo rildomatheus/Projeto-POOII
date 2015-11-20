@@ -5,12 +5,60 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class ConexaoAdministrador {
+public class ConexaoAdministrador{
+
+//Cria a conexão com o banco de dados MySql usando o JDBC
+	Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE:LocationFile","system","system");
+
+/*
+ * Exemplo de Consultar
+ */
+// Criando a String SQL
 	
-	public static void main(String []args) throws SQLException{
-		Connection conn = DriverManager
-		.getConnection("jdbc:oracle:thin:@192.168.43.59:1521:XE:LocationFile", "system", "root");
+		//String sql ="select * from adminstrador";
+
+		//PreparedStatement preStatement = conn.prepareStatement(sql);
+
+//preStatement.setInt(1, 2);
+// Executando o select
+		//ResultSet resultSet = preStatement.executeQuery();
+
+/*
+ * Exemplo de Select
+ */
+
+		//ArrayList<Administrador> listar = new ArrayList<Administrador>();
+
+
+	//while(resultSet.next()){
+		
+	//Pegando as colunas do registro
+	
+	//System.out.print(resultSet.getString("codigo") 	+ "\t");
+	//System.out.print(resultSet.getString("nome") 	+ "\t");
+	//System.out.println();
+	//Administrador administrador = new Administrador(resultSet.getInt("codigo"), resultSet.getString("nome"));
+	//listar.add(administrador);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		
 		 String sql ="insert into administrador (codigo, nome) values (?, ?)";
 		 
@@ -27,11 +75,10 @@ public class ConexaoAdministrador {
 	        System.out.println("ID do Insert no Banco " + codigoAdministrador);
 	        
 	        // Fechando conexões
-	        conn.close();
-	        pst.close();
-	        resultSet.close();
+	       //conn.close();
+	       //pst.close();
+	        //resultSet.close();
 		
 		
-	}
+	
 
-}
