@@ -85,6 +85,7 @@ public class Fachada {
 
 	}
 	//Fim CRUD Cliente.
+	 
   
 	//Inicio CRUD Administrador.
 	
@@ -146,7 +147,7 @@ public class Fachada {
 	
 	//Caixa
 	
-	public void cadastrarCaixa(Caixa caixa) throws CaixaJaCadastradaException, com.fafica.projeto.caixa.CampoObrigatorioInvalidoException{
+	public void cadastrarCaixa(Caixa caixa) throws CaixaJaCadastradaException, com.fafica.projeto.caixa.CampoObrigatorioInvalidoException, CampoObritarorioInvalidoException{
 		this.controladorCaixa.cadastrar(caixa);
 	}
 	
@@ -165,6 +166,7 @@ public class Fachada {
 	public ArrayList<Caixa> listarCaixa(){
 		return this.controladorCaixa.listar();
 	}
+
 
 	//Estante
 	
@@ -187,5 +189,6 @@ public class Fachada {
 	public List<Estante> listarEstante(){
 		return this.controladorEstante.listar();
 	}
+
 }
 

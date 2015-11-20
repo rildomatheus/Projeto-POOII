@@ -20,10 +20,8 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 			if (cliente.getNome() == null) throw new CampoObritarorioInvalidoException(" Nome ");
 			if (cliente.getNome() == " ") throw new CampoObritarorioInvalidoException(" Nome ");
 			if (cliente.getLoja() <= 0) throw new CampoObritarorioInvalidoException(" Loja ");
-		    repositorioCliente.cadastrar(cliente);
-			
+		    repositorioCliente.cadastrar(cliente);	
 		}
-
 		
 		public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException  {
 			

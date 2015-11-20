@@ -6,11 +6,6 @@ public class Cliente {
 	private String nome;
 	private int loja;
 	
-	
-	 public Cliente(String nome, int loja){
-		 this.setNome(nome);
-		 this.setLoja(loja);
-	 }
 	 
 	public Cliente(int codigo, String nome, int loja){
 		 this.setCodigo(codigo);
@@ -38,8 +33,9 @@ public class Cliente {
 	public void setLoja(int loja){
 		this.loja = loja;
 	}
+
 	
 	public String toString(){
-		return "[Cliente= " + " Codigo:"+codigo + " Nome:"+nome + " Loja:"+loja+ "]";
+		return "Cliente= " + " Codigo:"+codigo + " Nome:"+nome + " Loja:"+loja;
 	 }
 }
