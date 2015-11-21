@@ -8,9 +8,9 @@ public class TelaTesteEstante {
 	public static void main(String[] args){
 		
 		Fachada fachada = Fachada.getInstance();
-		Estante estante = new Estante(12,"Rua 3");
-		Estante estante1 = new Estante(13,"Rua 4");
-		Estante estante2 = new Estante(12,"Rua 5");
+		Estante estante = new Estante(12,"Rua 3",10);
+		Estante estante1 = new Estante(13,"Rua 4",10);
+		Estante estante2 = new Estante(12,"Rua 5",10);
 		
 		try {
 			fachada.cadastrarEstante(estante);
@@ -22,9 +22,9 @@ public class TelaTesteEstante {
 		} catch (EstanteJaCadastradaException e) {
 			System.out.println(e.getMessage());
 		} catch (Exception e){
-			System.out.println("ERROR!");
+			e.printStackTrace();
 		}
-		
+		/*
 		try {
 			fachada.atualizarEstante(estante2);
 		} catch (IllegalArgumentException e) {
@@ -36,7 +36,7 @@ public class TelaTesteEstante {
 		} catch (Exception e){
 			System.out.println("ERROR!");
 		}
-		
+		/*
 		try {
 			fachada.removerEstante(13);
 		} catch (CampoObrigatorioInvalidoException e) {
@@ -45,17 +45,18 @@ public class TelaTesteEstante {
 			System.out.println(e.getMessage());
 		} catch (Exception e){
 			System.out.println("ERROR!");
-		}
-		
+		}*/
+		/*
 		try {
-			System.out.println(fachada.procurarEstante(12));
+			System.out.println(fachada.procurarEstante(13));
+			System.out.println();
 		} catch (CampoObrigatorioInvalidoException e) {
 			System.out.println(e.getMessage());
 		} catch (EstanteNaoEncontradaException e) {
 			System.out.println(e.getMessage());
 		} catch (Exception e){
 			System.out.println("ERROR!");
-		}
+		}*/
 		
 	}
 

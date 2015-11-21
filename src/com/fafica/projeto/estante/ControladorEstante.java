@@ -9,7 +9,7 @@ public class ControladorEstante {
 	private IRepositorioEstante repositorioEstante;
 	
 	public ControladorEstante(){
-		repositorioEstante = new RepositorioEstanteSet();
+		repositorioEstante = new RepositorioEstanteIO();
 	}
 	
 	public void cadastrar(Estante estante) throws IllegalArgumentException, CampoObrigatorioInvalidoException, EstanteJaCadastradaException{
@@ -40,5 +40,5 @@ public class ControladorEstante {
 	public List<Estante> listar(){
 		return this.repositorioEstante.listar();
 	}
-
+	
 }

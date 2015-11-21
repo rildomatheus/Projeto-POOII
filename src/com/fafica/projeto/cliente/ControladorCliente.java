@@ -10,7 +10,7 @@ import com.fafica.projeto.cliente.RepositorioClienteArrayList;
 		private IRepositorioCliente repositorioCliente;
 		
 		public ControladorCliente() {
-			this.repositorioCliente = new RepositorioClienteArrayList();
+			this.repositorioCliente = new RepositorioClienteIo();
 		
 		}
 		

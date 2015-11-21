@@ -12,8 +12,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class RepositorioClienteIo implements IRepositorioCliente{
-
-	Path path = Paths.get("C:/Users/Lynneker/git/Projeto-POOII/Files1/clientes.txt");
+	
+	Path path = Paths.get("C:/Users/Lynneker/git/Projeto-POOII/Files/clientes.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	private ArrayList<Cliente> arrayListCliente;
 	
@@ -25,17 +25,17 @@ public class RepositorioClienteIo implements IRepositorioCliente{
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8, StandardOpenOption.APPEND)){
 			escritor.write(cliente.getCodigo()+";"+cliente.getNome()+";"+cliente.getLoja()+"\r\n");
 		} catch (IOException e){
-			System.out.println("ERRO");
+			System.out.println("ERROR");
 		}
 	}
 	
 	public void armazenarDadosArray(ArrayList<Cliente> arrayListCliente){
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Cliente cliente : arrayListCliente){
-				escritor.write(cliente.getCodigo()+";"+cliente.getNome()+"\r\n");
+				escritor.write(cliente.getCodigo()+";"+cliente.getNome()+";"+cliente.getLoja()+"\r\n");
 			}
 		} catch (IOException e){
-			System.out.println("ERRO");
+			System.out.println("ERROR");
 		}
 	}
 	
@@ -49,7 +49,7 @@ public class RepositorioClienteIo implements IRepositorioCliente{
 				clienteLidos.add(cliente);
 			}
 		} catch (IOException e){
-			System.out.println("ERRO");
+			System.out.println("ERROR");
 		}
 		return clienteLidos;
 	}
