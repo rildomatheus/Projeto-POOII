@@ -22,16 +22,15 @@ public class RepositorioAdministradorMap implements IRepositorioAdministrador {
 	}
 
 
-	public void atualizar(Administrador administrador){
-		//if(existe(administrador.getCodigo())) throw new
+	public void atualizar(Administrador administrador) throws AdministradorNaoEncontradoException{
+		if(existe(administrador.getCodigo())){
 		adm.remove(administrador.getCodigo());
 		adm.put(administrador.getCodigo(), administrador);
-	 //}else throw new AdministradorNaoEncontradoException();
+		System.out.println("Administrador atualizado com sucesso!");
+	 }else throw new AdministradorNaoEncontradoException();
 		
-	}
+ }
 
-	
-	
 	public void remover(int codigo) throws AdministradorNaoEncontradoException {
 		if(existe(codigo)){
 			adm.remove(codigo);

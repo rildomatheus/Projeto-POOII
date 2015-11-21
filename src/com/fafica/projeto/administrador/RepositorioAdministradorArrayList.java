@@ -22,7 +22,7 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 		
 	}
 	
-	public void atualizar(Administrador administrador){
+	public void atualizar(Administrador administrador)throws AdministradorNaoEncontradoException{
 		
 		for(Administrador administrador1 : arrayListAdministrador){
 			if(administrador1.getCodigo() == administrador.getCodigo()){
@@ -31,8 +31,9 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 				System.out.println("Administrador atualizador com sucesso!!");
 				
 			}
-		}
+		else throw new AdministradorNaoEncontradoException();
 	}
+}
 	
 	public void remover(int codigo) throws AdministradorNaoEncontradoException{
 		if(existe(codigo)){
