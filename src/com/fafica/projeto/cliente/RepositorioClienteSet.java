@@ -46,7 +46,6 @@ public class RepositorioClienteSet implements IRepositorioCliente{
 			clienteSet.remove(clienteRemover);
 			System.out.println("Cliente Removido Com Sucesso!!");
 		} else throw new ClienteNaoEncontradoException();	
-		
 	}
 
 	@Override
