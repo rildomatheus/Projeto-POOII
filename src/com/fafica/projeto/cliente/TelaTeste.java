@@ -6,10 +6,12 @@ public class TelaTeste {
 
 	public static void main(String[] args) {
 		Fachada fachada = Fachada.getInstance();
-		Cliente cliente = new Cliente(1,"Bonanza",1);
+		Cliente cliente1 = new Cliente(1,"Bonanza",1);
+		Cliente cliente2 = new Cliente(2,"Claro",1);
 		
 		try {
-			fachada.cadastrarCliente(cliente);
+			fachada.cadastrarCliente(cliente1);
+			fachada.cadastrarCliente(cliente2);
 		} catch (ClienteJaCadastradoException e) {
 			System.out.println(e.getMessage());
 
