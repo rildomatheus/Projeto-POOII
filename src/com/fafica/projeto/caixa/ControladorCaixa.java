@@ -2,10 +2,6 @@ package com.fafica.projeto.caixa;
 
 import java.util.ArrayList;
 
-import com.fafica.projeto.cliente.CampoObritarorioInvalidoException;
-import com.fafica.projeto.cliente.ClienteJaCadastradoException;
-import com.fafica.projeto.cliente.ControladorCliente;
-
 public class ControladorCaixa {
 
 	private IRepositorioCaixa	repositorioCaixa;
@@ -19,7 +15,7 @@ public class ControladorCaixa {
 		if(caixa.getCodigo() <=0) throw new CampoObrigatorioInvalidoException(" Codigo ");
 		if(caixa.getDescricao() == null) throw new CampoObrigatorioInvalidoException(" Descrição ");
 		if(caixa.getDescricao().equals(" ")) throw new CampoObrigatorioInvalidoException(" Descrição ");
-		//Cadastrar Caixa
+		
 		repositorioCaixa.cadastrar(caixa);
 	}
 	
