@@ -1,0 +1,2 @@
+1;Pessoa Fisica
+2;Pessoa Juridica
