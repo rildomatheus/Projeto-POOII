@@ -1,6 +1,6 @@
 package com.fafica.projeto.estante;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException;
 
@@ -37,7 +37,7 @@ public class ControladorEstante {
 		
 	}
 	
-	public List<Estante> listar(){
+	public ArrayList<Estante> listar(){
 		return this.repositorioEstante.listar();
 	}
 	

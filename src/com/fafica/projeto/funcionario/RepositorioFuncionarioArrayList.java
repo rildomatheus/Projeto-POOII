@@ -1,11 +1,11 @@
 package com.fafica.projeto.funcionario;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class RepositorioFuncionarioArrayList implements IRepositorioFuncionario {
 	
-	private List<Funcionario> funcionarios;
+	private ArrayList<Funcionario> funcionarios;
 	
 	
 	public RepositorioFuncionarioArrayList(){
@@ -16,7 +16,7 @@ public class RepositorioFuncionarioArrayList implements IRepositorioFuncionario 
 	public void cadastrar(Funcionario funcionario) throws FuncionarioJaCadastradoException{
 		if(existe(funcionario.getCodigo())) throw new FuncionarioJaCadastradoException();
 		funcionarios.add(funcionario);
-		System.out.println("Funcionário cadastrado com sucesso!");
+		
 	}
 		
 	
@@ -73,7 +73,7 @@ public class RepositorioFuncionarioArrayList implements IRepositorioFuncionario 
 	}
 	
 	//Lista os funcionários cadastrados	
-	public List<Funcionario> listar(){
+	public ArrayList<Funcionario> listar(){
 		return funcionarios;
 	}
 

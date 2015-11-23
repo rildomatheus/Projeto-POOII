@@ -2,7 +2,6 @@ package com.fafica.projeto.funcionario;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,7 +48,7 @@ public class RepositorioFuncionarioMap implements IRepositorioFuncionario {
 		}
 		return false;
 	}
-	public List<Funcionario> listar(){
+	public ArrayList<Funcionario> listar(){
 		ArrayList<Funcionario> lista = new ArrayList<Funcionario>();
 		Set<Integer> keys = funcionarios.keySet();
 		for(Integer key : keys){

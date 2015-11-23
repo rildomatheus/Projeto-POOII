@@ -1,6 +1,7 @@
 package com.fafica.projeto.funcionario;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public interface IRepositorioFuncionario {
 	
@@ -9,6 +10,6 @@ public interface IRepositorioFuncionario {
 	public void remover(int codigo) throws FuncionarioNaoEncontradoException;
 	public Funcionario procurar(int codigo) throws FuncionarioNaoEncontradoException;
 	public boolean existe(int codigo);
-	public List<Funcionario> listar();
+	public ArrayList<Funcionario> listar();
 
 }

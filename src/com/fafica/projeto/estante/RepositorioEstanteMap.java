@@ -2,7 +2,6 @@ package com.fafica.projeto.estante;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -16,21 +15,21 @@ private Map<Integer, Estante> estanteMap;
 	public void cadastrar(Estante estante) throws EstanteJaCadastradaException{
 		if(existe(estante.getCodigo())) throw new EstanteJaCadastradaException();
 		estanteMap.put(estante.getCodigo(), estante);
-		System.out.println("Estante cadastrada com sucesso!");
+		
 	}
 	
 	public void atualizar(Estante estante) throws EstanteNaoEncontradaException{
 		if(existe(estante.getCodigo())){
 			estanteMap.remove(estante.getCodigo());
 			estanteMap.put(estante.getCodigo(), estante);
-			System.out.println("Estante atualizada com sucesso!");
+		
 		}else throw new EstanteNaoEncontradaException();
 	}
 	
 	public void remover(int codigo) throws EstanteNaoEncontradaException{
 		if(existe(codigo)){
 			estanteMap.remove(codigo);
-			System.out.println("Estante removida com sucesso!");
+		
 		}else throw new EstanteNaoEncontradaException();
 	}
 	
@@ -46,7 +45,7 @@ private Map<Integer, Estante> estanteMap;
 		}
 		return false;
 	}
-	public List<Estante> listar(){
+	public ArrayList<Estante> listar(){
 		ArrayList<Estante> lista = new ArrayList<Estante>();
 		Set<Integer> keys = estanteMap.keySet();
 		for(Integer key : keys){

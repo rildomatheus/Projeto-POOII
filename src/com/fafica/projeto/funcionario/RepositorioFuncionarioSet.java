@@ -2,7 +2,6 @@ package com.fafica.projeto.funcionario;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class RepositorioFuncionarioSet implements IRepositorioFuncionario{
@@ -74,8 +73,8 @@ private Set<Funcionario> funcionarios;
 	}
 	
 	//Lista os funcionários cadastrados	
-	public List<Funcionario> listar(){
-		List<Funcionario> lista = new ArrayList<Funcionario>();
+	public ArrayList<Funcionario> listar(){
+		ArrayList<Funcionario> lista = new ArrayList<Funcionario>();
 		for(Funcionario funcionario : funcionarios){
 			lista.add(funcionario);
 		}

@@ -1,17 +1,23 @@
 package com.fafica.projeto.estante;
 
+import com.fafica.projeto.caixa.Caixa;
 import com.fafica.projeto.fachada.Fachada;
-import com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException;
 
 public class TelaTesteEstante {
 	
 	public static void main(String[] args){
+		Caixa caixa = new Caixa(1,"Documentos de zezinho");
 		
-		Fachada fachada = Fachada.getInstance();
+	//	Fachada fachada = Fachada.getInstance();
 		Estante estante = new Estante(12,"Rua 3",10);
-		Estante estante1 = new Estante(13,"Rua 4",10);
-		Estante estante2 = new Estante(12,"Rua 5",10);
+	//	Estante estante1 = new Estante(13,"Rua 4",10);
+	//	Estante estante2 = new Estante(12,"Rua 5",10);
 		
+		estante.setCaixa(caixa.getCodigo(),caixa);
+		estante.setCaixa(caixa.getCodigo(),caixa);
+		estante.setCaixa(caixa.getCodigo(),caixa);
+		System.out.println(estante);
+		/*
 		try {
 			fachada.cadastrarEstante(estante);
 			fachada.cadastrarEstante(estante1);

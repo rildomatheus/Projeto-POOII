@@ -10,13 +10,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.List;
 
 public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 	
 	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/funcionarios.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
-	private List<Funcionario> funcionarios;
+	private ArrayList<Funcionario> funcionarios;
 	
 	
 	public RepositorioFuncionarioIO(){
@@ -31,7 +30,7 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 			System.out.println("Ocorreu um erro");
 		}
 	}
-	public void armazenarDadosArray(List<Funcionario> funcionarios){
+	public void armazenarDadosArray(ArrayList<Funcionario> funcionarios){
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Funcionario funcionario : funcionarios){
 				escritor.write(funcionario.getCodigo()+";"+funcionario.getNome()+"\r\n");
@@ -41,8 +40,8 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 		}
 	}
 	
-	public List<Funcionario> recuperarDados(){
-		List<Funcionario> funcionariosLidos = new ArrayList<Funcionario>();
+	public ArrayList<Funcionario> recuperarDados(){
+		ArrayList<Funcionario> funcionariosLidos = new ArrayList<Funcionario>();
 		try(BufferedReader leitor = Files.newBufferedReader(path,utf8)){
 			String linha = null;
 			while((linha = leitor.readLine()) != null){
@@ -59,7 +58,7 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 	public void cadastrar(Funcionario funcionario) throws FuncionarioJaCadastradoException{
 		if(existe(funcionario.getCodigo())) throw new FuncionarioJaCadastradoException();
 		armazenarDadosIncremental(funcionario);
-		System.out.println("Funcionário cadastrado com sucesso!");
+		
 	}
 	
 	public void atualizar(Funcionario funcionario) throws FuncionarioNaoEncontradoException{
@@ -74,7 +73,7 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 			funcionarios.remove(funcionarioAtualizar);
 			funcionarios.add(funcionario);
 			armazenarDadosArray(funcionarios);
-			System.out.println("Funcionário atualizado com sucesso!");
+		
 		}else throw new FuncionarioNaoEncontradoException();
 	}
 	
@@ -93,7 +92,7 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 			}
 			funcionarios.remove(funcionarioRemover);
 			armazenarDadosArray(funcionarios);
-			System.out.println("Funcionário removido com sucesso!");
+		
 		} else throw new FuncionarioNaoEncontradoException();	
 	}
 		
@@ -120,7 +119,7 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 		return false;
 	}
 	
-	public List<Funcionario> listar(){
+	public ArrayList<Funcionario> listar(){
 		funcionarios = recuperarDados();
 		return funcionarios;
 		

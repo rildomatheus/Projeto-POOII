@@ -1,2 +1,1 @@
-1;Pessoa Fisica
-2;Pessoa Juridica
+15;15

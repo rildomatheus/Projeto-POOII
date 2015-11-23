@@ -1,6 +1,7 @@
 package com.fafica.projeto.estante;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public interface IRepositorioEstante {
 	
@@ -9,6 +10,6 @@ public interface IRepositorioEstante {
 	public void remover(int codigo) throws EstanteNaoEncontradaException;
 	public Estante procurar(int codigo) throws EstanteNaoEncontradaException;
 	public boolean existe(int codigo);
-	public List<Estante> listar();
+	public ArrayList<Estante> listar();
 
 }

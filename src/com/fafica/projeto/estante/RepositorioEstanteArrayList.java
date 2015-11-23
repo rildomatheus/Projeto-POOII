@@ -1,11 +1,11 @@
 package com.fafica.projeto.estante;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class RepositorioEstanteArrayList implements IRepositorioEstante{
 	
-	private List<Estante> estantes;
+	private ArrayList<Estante> estantes;
 	
 	
 	public RepositorioEstanteArrayList(){
@@ -16,7 +16,7 @@ public class RepositorioEstanteArrayList implements IRepositorioEstante{
 	public void cadastrar(Estante estante) throws EstanteJaCadastradaException{
 		if(existe(estante.getCodigo())) throw new EstanteJaCadastradaException();
 		estantes.add(estante);
-		System.out.println("Estante cadastrada com sucesso!");
+	
 	}
 		
 	
@@ -31,7 +31,7 @@ public class RepositorioEstanteArrayList implements IRepositorioEstante{
 			}
 			estantes.remove(estanteAtualizar);
 			estantes.add(estante);
-			System.out.println("Estante atualizada com sucesso!");
+			
 		}else throw new EstanteNaoEncontradaException();
 	}
 	
@@ -45,7 +45,7 @@ public class RepositorioEstanteArrayList implements IRepositorioEstante{
 			
 			}
 			estantes.remove(estanteRemover);
-			System.out.println("Estante removida com sucesso!");
+		
 		} else throw new EstanteNaoEncontradaException();	
 	}
 	
@@ -71,7 +71,7 @@ public class RepositorioEstanteArrayList implements IRepositorioEstante{
 	}
 	
 	//Lista os funcionários cadastrados	
-	public List<Estante> listar(){
+	public ArrayList<Estante> listar(){
 		return estantes;
 	}
 

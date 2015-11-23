@@ -10,13 +10,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
-import java.util.List;
-
-import com.fafica.projeto.caixa.Caixa;
 
 public class RepositorioEstanteIO implements IRepositorioEstante{
 
-	private List<Estante> estantes;
+	private ArrayList<Estante> estantes;
 	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/estantes.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	
@@ -33,7 +30,7 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 			e.printStackTrace();
 		}
 	}
-	public void armazenarDadosArray(List<Estante> estantes){
+	public void armazenarDadosArray(ArrayList<Estante> estantes){
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Estante estante : estantes){
 				escritor.write(estante.getCodigo()+";"+estante.getRua()+";"+estante.getModulos()+"\r\n");
@@ -43,8 +40,8 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 		}
 	}
 	
-	public List<Estante> recuperarDados(){
-		List<Estante> estanteLidos = new ArrayList<Estante>();
+	public ArrayList<Estante> recuperarDados(){
+		ArrayList<Estante> estanteLidos = new ArrayList<Estante>();
 		try(BufferedReader leitor = Files.newBufferedReader(path,utf8)){
 			String linha = null;
 			while((linha = leitor.readLine()) != null){
@@ -63,7 +60,6 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 		estantes.add(estante);
 		//armazenarDadosArray(estantes);
 		armazenarDadosIncremental(estante);
-		System.out.println("Estante cadastrada com sucesso!");
 	}
 		
 	
@@ -79,7 +75,7 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 			estantes.remove(estanteAtualizar);
 			estantes.add(estante);
 			armazenarDadosArray(estantes);
-			System.out.println("Estante atualizada com sucesso!");
+			
 		}else throw new EstanteNaoEncontradaException();
 	}
 	
@@ -94,7 +90,7 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 			}
 			estantes.remove(estanteRemover);
 			armazenarDadosArray(estantes);
-			System.out.println("Estante removida com sucesso!");
+			
 		} else throw new EstanteNaoEncontradaException();	
 	}
 	
@@ -122,7 +118,7 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 	}
 	
 	//Lista os funcionários cadastrados	
-	public List<Estante> listar(){
+	public ArrayList<Estante> listar(){
 		estantes = recuperarDados();
 		return estantes;
 	}

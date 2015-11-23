@@ -5,7 +5,7 @@ import com.fafica.projeto.fachada.Fachada;
 public class TelaTesteFuncionario {
 	
 	public static void main(String[] args){
-		Funcionario funcionario = new Funcionario(4123, "Joãozinho");
+		Funcionario funcionario = new Funcionario(123, "Dennis");
 		Funcionario funcionario1 = new Funcionario(4126, "Mike Wazowski");
 		Funcionario funcionario2 = new Funcionario(4125, "Zezinho");
 		Funcionario funcionario3 = new Funcionario(4123, "Sheriff Woody");
@@ -13,8 +13,7 @@ public class TelaTesteFuncionario {
 		/*
 		try {
 			fachada.cadastrarFuncionario(funcionario);
-			fachada.cadastrarFuncionario(funcionario1);
-			fachada.cadastrarFuncionario(funcionario2);
+			
 		}catch (IllegalArgumentException e) {
 			System.out.println(e.getMessage());
 		} catch (CampoObrigatorioInvalidoException e) {

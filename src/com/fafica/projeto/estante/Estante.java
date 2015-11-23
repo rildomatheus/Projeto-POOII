@@ -1,9 +1,14 @@
 package com.fafica.projeto.estante;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import com.fafica.projeto.caixa.Caixa;
+import com.fafica.projeto.caixa.CaixaJaCadastradaException;
+import com.fafica.projeto.funcionario.Funcionario;
 
 public class Estante {
 		
@@ -11,14 +16,21 @@ public class Estante {
 		private int codigo;
 		private int modulos;
 		private Caixa caixa;
-		private List<Caixa> listaCaixas = new ArrayList<Caixa>();
+		private Map<Integer, Caixa> mapCaixas = new HashMap();
 		
 		
 		public Estante(int codigo, String rua, int modulos){
 			this.setCodigo(codigo);
 			this.setRua(rua);
 			this.setModulos(modulos);
-		}		
+		}	
+		public Estante(int codigo, String rua, int modulos, Caixa caixa){
+			this.setCodigo(codigo);
+			this.setCodigo(codigo);
+			this.setRua(rua);
+			this.setModulos(modulos);
+			this.setCaixa(caixa.getCodigo(), caixa);
+		}
 		
 		public void setCodigo(int codigo) {this.codigo = codigo;}
 		public int getCodigo(){return codigo;}
@@ -29,15 +41,24 @@ public class Estante {
 		public void setModulos(int modulos) {this.modulos = modulos;}
 		public int getModulos(){return this.modulos;}
 				
-		public void setCaixa(Caixa caixa){listaCaixas.add(caixa);}
-		public  List<Caixa> getListaCaixa(){return listaCaixas;}
+		public void setCaixa(Integer codigo, Caixa caixa){
+			if(mapCaixas.containsKey(codigo)){String msg = "Caixa já cadastrada!";}
+			if(mapCaixas.size() < modulos){String msg = "Estante lotada";}
+			mapCaixas.put(codigo,caixa);
+			
+			}
 		
-		public List<Caixa> listarCaixas(){
-			return listaCaixas;
+		public ArrayList<Caixa> getListaCaixa(){
+			ArrayList<Caixa> lista = new ArrayList<Caixa>();
+			Set<Integer> keys = mapCaixas.keySet();
+			for(Integer key : keys){
+				lista.add(mapCaixas.get(key));
+			}
+			return lista;
 		}
 		
 		public String toString(){
-			return "Código: "+codigo+" | Rua: "+rua+" Módulos: "+modulos;
+			return "Código: "+codigo+" | Rua: "+rua+" Módulos: "+modulos+" Caixas cadastradas: "+getListaCaixa();
 		}
 
 }

@@ -1,7 +1,6 @@
 package com.fafica.projeto.fachada;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.fafica.projeto.administrador.Administrador;
 import com.fafica.projeto.administrador.AdministradorJaCadastradoException;
@@ -141,7 +140,7 @@ public class Fachada {
 		return this.controladorFuncionario.procurar(codigo);
 	}
 	
-	public List<Funcionario> listarFuncionario(){
+	public ArrayList<Funcionario> listarFuncionario(){
 		return this.controladorFuncionario.listar();
 	}
 	
@@ -186,7 +185,7 @@ public class Fachada {
 		return this.controladorEstante.procurar(codigo);
 	}
 	
-	public List<Estante> listarEstante(){
+	public ArrayList<Estante> listarEstante(){
 		return this.controladorEstante.listar();
 	}
 

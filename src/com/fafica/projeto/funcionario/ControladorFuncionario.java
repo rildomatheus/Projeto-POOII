@@ -1,6 +1,7 @@
 package com.fafica.projeto.funcionario;
 
-import java.util.List;
+import java.util.ArrayList;
+
 
 public class ControladorFuncionario{
 		
@@ -36,7 +37,7 @@ public class ControladorFuncionario{
 			
 		}
 		
-		public List<Funcionario> listar(){
+		public ArrayList<Funcionario> listar(){
 			return this.repositorioFuncionario.listar();
 		}
 		
