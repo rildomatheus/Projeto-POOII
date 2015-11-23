@@ -11,7 +11,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
-
 public class RepositorioCaixaIo implements IRepositorioCaixa{
 	
 	Path path = Paths.get("C:/Users/Lynneker/git/Projeto-POOII/Files/caixas.txt");
@@ -84,8 +83,7 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 			for(Caixa caixaBusca : arrayListCaixa){
 				if(caixaBusca.getCodigo() == codigo){
 					caixaRemover = caixaBusca;
-				}
-			
+				}		
 			}
 			arrayListCaixa.remove(caixaRemover);
 			armazenarDadosArray(arrayListCaixa);
@@ -105,7 +103,6 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 		return caixaProcura;
 	}
 	
-
 	public boolean existe(int codigo){
 		arrayListCaixa = recuperarDados();
 		for(Caixa caixaBusca : arrayListCaixa){

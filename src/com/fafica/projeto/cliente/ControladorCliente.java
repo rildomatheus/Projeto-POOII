@@ -14,7 +14,7 @@ import java.util.ArrayList;
 		public void cadastrar(Cliente cliente)throws ClienteJaCadastradoException, CampoObritarorioInvalidoException{
 			if (cliente.getCodigo() <= 0) throw new CampoObritarorioInvalidoException(" Codigo ");
 			if (cliente.getNome() == null) throw new CampoObritarorioInvalidoException(" Nome ");
-			if (cliente.getNome() == " ") throw new CampoObritarorioInvalidoException(" Nome ");
+			if (cliente.getNome().equals("")) throw new CampoObritarorioInvalidoException(" Nome ");
 			if (cliente.getLoja() <= 0) throw new CampoObritarorioInvalidoException(" Loja ");
 		    repositorioCliente.cadastrar(cliente);	
 		}

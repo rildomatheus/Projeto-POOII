@@ -59,7 +59,7 @@ public class RepositorioClienteIo implements IRepositorioCliente{
 	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException {
 		if(existe(cliente.getCodigo())) throw new ClienteJaCadastradoException();
 		armazenarDadosIncremental(cliente);
-		System.out.println("Cliente cadastrado com sucesso!");
+	//	System.out.println("Cliente cadastrado com sucesso!");
 	}
 	@Override
 	public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException {
@@ -74,7 +74,7 @@ public class RepositorioClienteIo implements IRepositorioCliente{
 			arrayListCliente.remove(clienteAtualizar);
 			arrayListCliente.add(cliente);
 			armazenarDadosArray(arrayListCliente);
-			System.out.println("Cliente Atualizado Com Sucesso!");
+		//	System.out.println("Cliente Atualizado Com Sucesso!");
 		}else throw new ClienteNaoEncontradoException();
 	}
 
@@ -91,7 +91,7 @@ public class RepositorioClienteIo implements IRepositorioCliente{
 			}
 			arrayListCliente.remove(clienteRemover);
 			armazenarDadosArray(arrayListCliente);
-			System.out.println("Cliente Removido Com Sucesso!");
+		//	System.out.println("Cliente Removido Com Sucesso!");
 		} else throw new ClienteNaoEncontradoException();	
 	}
 
