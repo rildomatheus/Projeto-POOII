@@ -57,7 +57,7 @@ public class Fachada {
 		this.controladorCliente.cadastrar(cliente);
 	}
 
-	public void atualizarCliente(Cliente cliente) throws ClienteNaoEncontradoException  {
+	public void atualizarCliente(Cliente cliente) throws ClienteNaoEncontradoException, CampoObritarorioInvalidoException  {
 		
 		this.controladorCliente.atualizar(cliente);
 	}

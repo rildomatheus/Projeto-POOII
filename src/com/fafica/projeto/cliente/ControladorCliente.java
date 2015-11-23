@@ -19,9 +19,13 @@ import java.util.ArrayList;
 		    repositorioCliente.cadastrar(cliente);	
 		}
 		
-		public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException  {
+		public void atualizar(Cliente cliente) throws ClienteNaoEncontradoException, CampoObritarorioInvalidoException  {
 			
 			if(!existe(cliente.getCodigo())) throw new ClienteNaoEncontradoException();
+			if (cliente.getCodigo() <= 0) throw new CampoObritarorioInvalidoException(" Codigo ");
+			if (cliente.getNome() == null) throw new CampoObritarorioInvalidoException(" Nome ");
+			if (cliente.getNome().equals("")) throw new CampoObritarorioInvalidoException(" Nome ");
+			if (cliente.getLoja() <= 0) throw new CampoObritarorioInvalidoException(" Loja ");
 			repositorioCliente.atualizar(cliente);
 			
 		}

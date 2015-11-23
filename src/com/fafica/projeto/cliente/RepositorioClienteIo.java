@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class RepositorioClienteIo implements IRepositorioCliente{
 	
-	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/clientes.txt");
+	Path path = Paths.get("C:/Users/Lynneker/git/Projeto-POOII/Files/clientes.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	private ArrayList<Cliente> arrayListCliente;
 	

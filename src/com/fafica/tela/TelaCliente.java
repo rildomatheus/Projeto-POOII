@@ -120,6 +120,11 @@ public class TelaCliente {
 		panel_1.add(btnCadastrar);
 		
 		JButton btnAtualizar = new JButton("Atualizar");
+		btnAtualizar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				atualizar();
+			}
+		});
 		btnAtualizar.setBounds(324, 48, 89, 23);
 		panel_1.add(btnAtualizar);
 		
@@ -143,11 +148,16 @@ public class TelaCliente {
 			remover();
 			}
 		});
-		btnRemover.setBounds(139, 7, 101, 23);
+		btnRemover.setBounds(199, 11, 116, 23);
 		panel_2.add(btnRemover);
 		
 		JButton btnProcurar = new JButton("Procurar");
-		btnProcurar.setBounds(251, 7, 89, 23);
+		btnProcurar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			procurar();
+			}
+		});
+		btnProcurar.setBounds(328, 11, 89, 23);
 		panel_2.add(btnProcurar);
 		
 		textCodigo2 = new JTextField();
@@ -168,6 +178,7 @@ public class TelaCliente {
 			}
 		));
 		table.getColumnModel().getColumn(1).setPreferredWidth(474);
+		defaultTableModelCliente = (DefaultTableModel) table.getModel();
 		scrollPane.setViewportView(table);
 		
 		JButton btnListarClientes = new JButton("Listar Clientes");
@@ -208,6 +219,33 @@ public class TelaCliente {
 		}
 	}
 	
+	public void atualizar() {
+
+		String codigo 	=	textCodigo.getText();
+		if(codigo.equals("")){
+			codigo = "0";
+		}
+		String nome		=	textNome.getText();
+		String loja		=	textLoja.getText();
+		if(loja.equals("")){
+			loja = "0";
+		}
+			
+		
+				try {
+					Cliente cliente = new Cliente(Integer.parseInt(codigo),nome,Integer.parseInt(loja));	
+					fachada.atualizarCliente(cliente);
+					JOptionPane.showMessageDialog(frmTelaCliente,"Cliente Atualizado Com Sucesso");
+					limparCampos();
+				} catch (ClienteNaoEncontradoException e) {
+					JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+				} catch (CampoObritarorioInvalidoException e) {
+					JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+				}
+			
+			
+	
+	}
 	
 	public void limparCampos(){
 		textCodigo.setText("");
@@ -244,6 +282,35 @@ public class TelaCliente {
 			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 
 		} catch (CampoObritarorioInvalidoException e) {
+			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+
+		} catch (Exception e){
+			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+
+		}
+		
+		
+	}
+	
+	public void procurar(){
+		String codigo	=	textCodigo2.getText();
+		if(codigo.equals("")){
+			codigo = "0";
+		}
+		try {
+			Cliente cliente = fachada.procurarCliente(Integer.parseInt(codigo));
+			limparCampos();
+			limparTabelaCliente();
+			Vector vector = new Vector();
+			vector.add(cliente.getCodigo());
+			vector.add(cliente.getNome());
+			vector.add(cliente.getLoja());
+			defaultTableModelCliente.addRow(vector);
+
+		} catch (NumberFormatException e) {
+			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+
+		} catch (ClienteNaoEncontradoException e) {
 			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 
 		} catch (Exception e){
