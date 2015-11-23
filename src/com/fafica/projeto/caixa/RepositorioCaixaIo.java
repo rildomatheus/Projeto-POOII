@@ -11,9 +11,12 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
+import com.fafica.projeto.cliente.Cliente;
+import com.fafica.projeto.estante.Estante;
+
 public class RepositorioCaixaIo implements IRepositorioCaixa{
 	
-	Path path = Paths.get("C:/Users/Lynneker/git/Projeto-POOII/Files/caixas.txt");
+	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/caixas.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	private ArrayList<Caixa> arrayListCaixa;
 	
@@ -23,7 +26,8 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 	
 	public void armazenarDadosIncremental(Caixa caixa){
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8, StandardOpenOption.APPEND)){
-			escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+"\r\n");
+			escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+";"+caixa.getCliente().getCodigo()+";"+caixa.getCliente().getNome()
+					+";"+caixa.getCliente().getLoja()+";"+caixa.getEstante().getCodigo()+";"+caixa.getEstante().getRua()+";"+caixa.getEstante().getModulos()+"\r\n");
 		} catch (IOException e){
 			e.printStackTrace();
 		}
@@ -32,7 +36,8 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 	public void armazenarDadosArray(ArrayList<Caixa> arrayListCaixa){
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Caixa caixa : arrayListCaixa){
-				escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+"\r\n");
+				escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+";"+caixa.getCliente().getCodigo()+";"+caixa.getCliente().getNome()
+						+";"+caixa.getCliente().getLoja()+";"+caixa.getEstante().getCodigo()+";"+caixa.getEstante().getRua()+";"+caixa.getEstante().getModulos()+"\r\n");
 			}
 		} catch (IOException e){
 			System.out.println("ERROR");
@@ -40,24 +45,26 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 	}
 	
 	public ArrayList<Caixa> recuperarDados(){
-		ArrayList<Caixa> caixaLidos = new ArrayList<Caixa>();
+		ArrayList<Caixa> caixaLida = new ArrayList<Caixa>();
 		try(BufferedReader leitor = Files.newBufferedReader(path,utf8)){
 			String linha = null;
 			while((linha = leitor.readLine()) != null){
 				String[] atributo = linha.split(";");
-				Caixa caixa = new Caixa(Integer.parseInt(atributo[0]),atributo[1]);
-				caixaLidos.add(caixa);
+				Cliente cliente = new Cliente(Integer.parseInt(atributo[2]),atributo[3],Integer.parseInt(atributo[4]));
+				Estante estante = new Estante(Integer.parseInt(atributo[5]),atributo[6],Integer.parseInt(atributo[7]));
+				Caixa caixa = new Caixa(Integer.parseInt(atributo[0]),atributo[1],cliente,estante);
+				caixaLida.add(caixa);
 			}
 		} catch (IOException e){
 			System.out.println("ERROR");
 		}
-		return caixaLidos;
+		return caixaLida;
 	}
 	
 	public void cadastrar(Caixa caixa) throws CaixaJaCadastradaException{
 		if(existe(caixa.getCodigo())) throw new CaixaJaCadastradaException();
 		armazenarDadosIncremental(caixa);
-		System.out.println("Caixa cadastrada com sucesso!");
+		
 	}
 		
 	public void atualizar(Caixa caixa) throws CaixaNaoEncontradaException{
@@ -72,7 +79,7 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 			arrayListCaixa.remove(caixaAtualizar);
 			arrayListCaixa.add(caixa);
 			armazenarDadosArray(arrayListCaixa);
-			System.out.println("Caixa Atualizado Com Sucesso!");
+		
 		}else throw new CaixaNaoEncontradaException();
 	}
 	
@@ -87,7 +94,7 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 			}
 			arrayListCaixa.remove(caixaRemover);
 			armazenarDadosArray(arrayListCaixa);
-			System.out.println("Caixa Removido Com Sucesso!");
+		
 		} else throw new CaixaNaoEncontradaException();	
 	}
 	

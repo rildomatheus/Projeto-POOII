@@ -183,13 +183,13 @@ public class TelaEstante {
 		scrollPane.setViewportView(tableEstante);
 		
 	}
-	public void limparCampos(){
+	private void limparCampos(){
 		limparTabelaEstante();
 		txtCodigo.setText("");
 		txtRua.setText("");
 		txtModulos.setText("");
 	}
-	public void cadastrar(){
+	private void cadastrar(){
 		String codigo = txtCodigo.getText();
 		String rua = txtRua.getText();
 		String modulos = txtModulos.getText();
@@ -216,7 +216,7 @@ public class TelaEstante {
 		}
 	}
 	
-	public void atualizar(){
+	private void atualizar(){
 		String codigo = txtCodigo.getText();
 		String rua = txtRua.getText();
 		String modulos = txtModulos.getText();
@@ -244,7 +244,7 @@ public class TelaEstante {
 		}
 	}
 	
-	public void procurar(){
+	private void procurar(){
 		String codigo = txtCodigo.getText();
 		if(codigo.equals("")){
 			codigo = "0";
@@ -252,7 +252,6 @@ public class TelaEstante {
 		try {
 			Estante estante = fachada.procurarEstante(Integer.parseInt(codigo));
 			limparCampos();
-			limparTabelaEstante();
 			Vector vector = new Vector();
 			vector.add(estante.getCodigo());
 			vector.add(estante.getRua());
@@ -282,10 +281,10 @@ public class TelaEstante {
 	}
 	
 	
-	public void limparTabelaEstante(){
+	private void limparTabelaEstante(){
 		model.setNumRows(0);
 	}
-	public void remover(){
+	private void remover(){
 		String codigo = txtCodigo.getText();
 		if(codigo.equals("")){
 			codigo = "0";

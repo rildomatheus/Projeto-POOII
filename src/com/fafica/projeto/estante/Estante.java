@@ -17,6 +17,7 @@ public class Estante {
 		private int modulos;
 		private Caixa caixa;
 		private Map<Integer, Caixa> mapCaixas = new HashMap();
+		private ArrayList<Caixa> listaCaixas = new ArrayList<Caixa>();
 		
 		
 		public Estante(int codigo, String rua, int modulos){
@@ -46,7 +47,7 @@ public class Estante {
 			if(mapCaixas.size() < modulos){String msg = "Estante lotada";}
 			mapCaixas.put(codigo,caixa);
 			
-			}
+		}
 		
 		public ArrayList<Caixa> getListaCaixa(){
 			ArrayList<Caixa> lista = new ArrayList<Caixa>();
@@ -58,7 +59,7 @@ public class Estante {
 		}
 		
 		public String toString(){
-			return "Código: "+codigo+" | Rua: "+rua+" Módulos: "+modulos+" Caixas cadastradas: "+getListaCaixa();
+			return "Código: "+codigo+" | Rua: "+rua+" Módulos: "+modulos;
 		}
 
 }
