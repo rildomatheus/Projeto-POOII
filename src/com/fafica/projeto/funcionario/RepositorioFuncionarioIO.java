@@ -27,7 +27,8 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8, StandardOpenOption.APPEND)){
 			escritor.write(funcionario.getCodigo()+";"+funcionario.getNome()+"\r\n");
 		} catch (IOException e){
-			System.out.println("Ocorreu um erro");
+		//	System.out.println("Ocorreu um erro");
+			e.printStackTrace();
 		}
 	}
 	public void armazenarDadosArray(ArrayList<Funcionario> funcionarios){
