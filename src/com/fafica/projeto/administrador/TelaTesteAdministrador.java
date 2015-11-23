@@ -1,14 +1,24 @@
 package com.fafica.projeto.administrador;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import com.fafica.projeto.fachada.Fachada;
 import com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException;
 
 public class TelaTesteAdministrador {
-	public static void main(String[] args){
+	public static void main(String[] args) throws SQLException{
 		
-		Administrador adm = new Administrador(12,"Rildo Matheus");
-		Administrador adm1 = new Administrador(3457,"Rildo Matheus");
-		Administrador adm2 = new Administrador(3458,"Sr. Rildo Matheus");
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		try(Connection con = DriverManager.getConnection(url, "admin", "admin1")){
+			//RepositorioAdministradorJDBC jdbc = new RepositorioAdministrador();
+			
+			Administrador administrador = new Administrador(1212,"Joao Peba");
+			Administrador administrador2 = new Administrador(121,"Joao Pebinha");
+			
+		}
+		
 		Fachada fachada = Fachada.getInstance();
 		
 	    //fachada.cadastrarAdministrador(adm);
