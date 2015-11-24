@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 	
-	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/funcionarios.txt");
+	Path path = Paths.get("C:/Users/Lynneker/git/Projeto-POOII/Files/funcionarios.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	private ArrayList<Funcionario> funcionarios;
 	
