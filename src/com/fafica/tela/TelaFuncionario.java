@@ -37,8 +37,9 @@ import java.awt.Font;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
 
-public class TelaFuncionario {
-
+public class TelaFuncionario extends JFrame{
+	
+	
 	private JFrame frmCadastroDeFuncionario;
 	private JTextField txtNome;
 	private JTextField txtCodigo2;
@@ -68,24 +69,19 @@ public class TelaFuncionario {
 	 * Create the application.
 	 */
 	public TelaFuncionario() {
-		initialize();
+		
+		
 		fachada = Fachada.getInstance();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmCadastroDeFuncionario = new JFrame();
-		frmCadastroDeFuncionario.setTitle("Cadastrar Funcion\u00E1rio");
-		frmCadastroDeFuncionario.setBounds(100, 100, 625, 350);
-		frmCadastroDeFuncionario.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmCadastroDeFuncionario.getContentPane().setLayout(null);
+	
+		setTitle("Cadastrar Funcion\u00E1rio");
+		setBounds(100, 100, 625, 350);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JPanel panel_AtualizarCadastrar = new JPanel();
 		panel_AtualizarCadastrar.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel_AtualizarCadastrar.setBounds(10, 11, 589, 75);
-		frmCadastroDeFuncionario.getContentPane().add(panel_AtualizarCadastrar);
+		getContentPane().add(panel_AtualizarCadastrar);
 		panel_AtualizarCadastrar.setLayout(null);
 		
 		JLabel lblCdigo = new JLabel("C\u00F3digo:");
@@ -139,7 +135,7 @@ public class TelaFuncionario {
 		JPanel panel_ProcuraRemover = new JPanel();
 		panel_ProcuraRemover.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel_ProcuraRemover.setBounds(10, 97, 589, 44);
-		frmCadastroDeFuncionario.getContentPane().add(panel_ProcuraRemover);
+		getContentPane().add(panel_ProcuraRemover);
 		panel_ProcuraRemover.setLayout(null);
 		
 		JLabel lblCdigo_1 = new JLabel("C\u00F3digo:");
@@ -184,7 +180,7 @@ public class TelaFuncionario {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 152, 589, 149);
-		frmCadastroDeFuncionario.getContentPane().add(scrollPane);
+		getContentPane().add(scrollPane);
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -313,4 +309,6 @@ public class TelaFuncionario {
 			JOptionPane.showMessageDialog(frmCadastroDeFuncionario, "ERROR", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+
+	
 }

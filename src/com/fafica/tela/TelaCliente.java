@@ -30,7 +30,7 @@ import com.fafica.projeto.cliente.ClienteNaoEncontradoException;
 import com.fafica.projeto.fachada.Fachada;
 import javax.swing.border.LineBorder;
 
-public class TelaCliente {
+public class TelaCliente extends JFrame{
 
 	private JFrame frmTelaCliente;
 	private JTextField textCodigo;
@@ -62,25 +62,19 @@ public class TelaCliente {
 	 */
 	public TelaCliente() {
 		fachada = Fachada.getInstance();
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmTelaCliente = new JFrame();
-		frmTelaCliente.setFont(new Font("Dialog", Font.PLAIN, 15));
-		frmTelaCliente.setForeground(Color.BLACK);
-		frmTelaCliente.setTitle("Cliente");
-		frmTelaCliente.setBounds(100, 100, 625, 339);
-		frmTelaCliente.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmTelaCliente.getContentPane().setLayout(null);
+	
+		
+		setFont(new Font("Dialog", Font.PLAIN, 15));
+		setForeground(Color.BLACK);
+		setTitle("Cliente");
+		setBounds(100, 100, 625, 339);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setBounds(10, 11, 589, 75);
-		frmTelaCliente.getContentPane().add(panel_1);
+		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblCodigo = new JLabel("C\u00F3digo:");
@@ -131,7 +125,7 @@ public class TelaCliente {
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_2.setBounds(10, 97, 589, 44);
-		frmTelaCliente.getContentPane().add(panel_2);
+		getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 		
 		JLabel label = new JLabel("");
@@ -167,7 +161,7 @@ public class TelaCliente {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 151, 589, 112);
-		frmTelaCliente.getContentPane().add(scrollPane);
+		getContentPane().add(scrollPane);
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -188,7 +182,7 @@ public class TelaCliente {
 			}
 		});
 		btnListarClientes.setBounds(474, 267, 125, 23);
-		frmTelaCliente.getContentPane().add(btnListarClientes);
+		getContentPane().add(btnListarClientes);
 		
 	}
 	private void cadastrar(){
@@ -214,8 +208,8 @@ public class TelaCliente {
 			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (CampoObritarorioInvalidoException e) {
 			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-		} catch (Exception e){
-			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+		}  catch (Exception e1){
+			JOptionPane.showMessageDialog(frmTelaCliente, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -241,6 +235,8 @@ public class TelaCliente {
 					JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 				} catch (CampoObritarorioInvalidoException e) {
 					JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+				}  catch (Exception e1){
+					JOptionPane.showMessageDialog(frmTelaCliente, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 				}
 			
 			
@@ -284,9 +280,8 @@ public class TelaCliente {
 		} catch (CampoObritarorioInvalidoException e) {
 			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 
-		} catch (Exception e){
-			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-
+		}  catch (Exception e1){
+			JOptionPane.showMessageDialog(frmTelaCliente, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		
@@ -313,9 +308,8 @@ public class TelaCliente {
 		} catch (ClienteNaoEncontradoException e) {
 			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 
-		} catch (Exception e){
-			JOptionPane.showMessageDialog(frmTelaCliente, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-
+		}   catch (Exception e1){
+			JOptionPane.showMessageDialog(frmTelaCliente, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }

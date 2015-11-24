@@ -140,6 +140,10 @@ public class Fachada {
 		return this.controladorFuncionario.procurar(codigo);
 	}
 	
+	public boolean existeFuncionario(int codigo){
+		return this.controladorFuncionario.existe(codigo);
+	}
+	
 	public ArrayList<Funcionario> listarFuncionario(){
 		return this.controladorFuncionario.listar();
 	}

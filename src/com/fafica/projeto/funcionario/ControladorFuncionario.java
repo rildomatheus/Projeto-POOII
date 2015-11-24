@@ -37,6 +37,10 @@ public class ControladorFuncionario{
 			
 		}
 		
+		public boolean existe(int codigo){
+			return this.repositorioFuncionario.existe(codigo);
+		}
+		
 		public ArrayList<Funcionario> listar(){
 			return this.repositorioFuncionario.listar();
 		}

@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
-public class TelaCaixa {
+public class TelaCaixa extends JFrame{
 
 	private JFrame frmCadastrarCaixa;
 	private JLabel lblCdigoDaEstante;
@@ -68,24 +68,19 @@ public class TelaCaixa {
 	 * Create the application.
 	 */
 	public TelaCaixa() {
-		initialize();
+		
 		fachada = Fachada.getInstance();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmCadastrarCaixa = new JFrame();
-		frmCadastrarCaixa.setTitle("Cadastrar caixa");
-		frmCadastrarCaixa.setBounds(100, 100, 625, 350);
-		frmCadastrarCaixa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmCadastrarCaixa.getContentPane().setLayout(null);
+	
+		
+		setTitle("Cadastrar caixa");
+		setBounds(100, 100, 625, 350);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JPanel panelDeCampos = new JPanel();
 		panelDeCampos.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panelDeCampos.setBounds(10, 11, 589, 60);
-		frmCadastrarCaixa.getContentPane().add(panelDeCampos);
+		getContentPane().add(panelDeCampos);
 		panelDeCampos.setLayout(null);
 		
 		lblCdigoDaEstante = new JLabel("C\u00F3digo da estante:");
@@ -131,7 +126,7 @@ public class TelaCaixa {
 		JPanel panelDeBotoes = new JPanel();
 		panelDeBotoes.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panelDeBotoes.setBounds(10, 82, 589, 46);
-		frmCadastrarCaixa.getContentPane().add(panelDeBotoes);
+		getContentPane().add(panelDeBotoes);
 		panelDeBotoes.setLayout(null);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
@@ -186,7 +181,7 @@ public class TelaCaixa {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 173, 589, 128);
-		frmCadastrarCaixa.getContentPane().add(scrollPane);
+		getContentPane().add(scrollPane);
 		
 		tableCaixa = new JTable();
 		tableCaixa.setModel(new DefaultTableModel(
@@ -204,7 +199,7 @@ public class TelaCaixa {
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnLimpar.setBounds(260, 139, 89, 23);
-		frmCadastrarCaixa.getContentPane().add(btnLimpar);
+		getContentPane().add(btnLimpar);
 	}
 	public void cadastrar(){
 	

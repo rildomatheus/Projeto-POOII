@@ -26,7 +26,7 @@ import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
-public class TelaEstante {
+public class TelaEstante extends JFrame{
 
 	private JFrame frmCadastrarEstante;
 	private JTextField txtCodigo;
@@ -55,24 +55,18 @@ public class TelaEstante {
 	 * Create the application.
 	 */
 	public TelaEstante() {
-		initialize();
+		
 		fachada = Fachada.getInstance();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmCadastrarEstante = new JFrame();
-		frmCadastrarEstante.setTitle("Cadastrar Estante");
-		frmCadastrarEstante.setBounds(100, 100, 625, 350);
-		frmCadastrarEstante.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmCadastrarEstante.getContentPane().setLayout(null);
+		
+		setTitle("Cadastrar Estante");
+		setBounds(100, 100, 625, 350);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
 		panel.setBounds(10, 11, 589, 68);
-		frmCadastrarEstante.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblCdigo = new JLabel("C\u00F3digo:");
@@ -163,11 +157,11 @@ public class TelaEstante {
 		});
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnLimpar.setBounds(260, 90, 89, 23);
-		frmCadastrarEstante.getContentPane().add(btnLimpar);
+		getContentPane().add(btnLimpar);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 124, 589, 177);
-		frmCadastrarEstante.getContentPane().add(scrollPane);
+		getContentPane().add(scrollPane);
 		
 		tableEstante = new JTable();
 		tableEstante.setModel(new DefaultTableModel(
@@ -211,8 +205,8 @@ public class TelaEstante {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (EstanteJaCadastradaException e) {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-		} catch (Exception e){
-			JOptionPane.showMessageDialog(frmCadastrarEstante, "ERRO", "ERRO", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception e1){
+			JOptionPane.showMessageDialog(frmCadastrarEstante, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -239,8 +233,8 @@ public class TelaEstante {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (EstanteNaoEncontradaException e) {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-		} catch (Exception e){
-			JOptionPane.showMessageDialog(frmCadastrarEstante, "ERRO", "ERRO", JOptionPane.ERROR_MESSAGE);
+		}catch (Exception e1){
+			JOptionPane.showMessageDialog(frmCadastrarEstante, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -263,9 +257,10 @@ public class TelaEstante {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (EstanteNaoEncontradaException e) {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-		}catch (Exception e){
-			JOptionPane.showMessageDialog(frmCadastrarEstante, "ERRO", "ERRO", JOptionPane.ERROR_MESSAGE);
+		}catch (Exception e1){
+			JOptionPane.showMessageDialog(frmCadastrarEstante, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
+	
 	}
 	
 	private void listar(){
@@ -299,8 +294,8 @@ public class TelaEstante {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (EstanteNaoEncontradaException e) {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
-		}catch (Exception e){
-			JOptionPane.showMessageDialog(frmCadastrarEstante, "ERRO", "ERRO", JOptionPane.ERROR_MESSAGE);
+		}catch (Exception e1){
+			JOptionPane.showMessageDialog(frmCadastrarEstante, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

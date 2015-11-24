@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 
-public class TelaAdministrador {
+public class TelaAdministrador extends JFrame {
 
 	private JFrame frmAdministrador;
 	private JTable table;
@@ -56,24 +56,19 @@ public class TelaAdministrador {
 	 * Create the application.
 	 */
 	public TelaAdministrador() {
-		initialize();
+		
 		fachada = Fachada.getInstance();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmAdministrador = new JFrame();
-		frmAdministrador.setTitle("Administrador");
-		frmAdministrador.setBounds(100, 100, 625, 339);
-		frmAdministrador.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmAdministrador.getContentPane().setLayout(null);
+	
+		
+		setTitle("Administrador");
+		setBounds(100, 100, 625, 339);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel.setBounds(10, 11, 589, 75);
-		frmAdministrador.getContentPane().add(panel);
+		getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblCdigo = new JLabel("C\u00F3digo:");
@@ -115,7 +110,7 @@ public class TelaAdministrador {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panel_1.setBounds(10, 97, 589, 44);
-		frmAdministrador.getContentPane().add(panel_1);
+		getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblCdigo_1 = new JLabel("C\u00F3digo:");
@@ -147,7 +142,7 @@ public class TelaAdministrador {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 150, 589, 112);
-		frmAdministrador.getContentPane().add(scrollPane);
+		getContentPane().add(scrollPane);
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -168,7 +163,7 @@ public class TelaAdministrador {
 			}
 		});
 		btnListarAdministradores.setBounds(425, 267, 174, 23);
-		frmAdministrador.getContentPane().add(btnListarAdministradores);
+		getContentPane().add(btnListarAdministradores);
 	}
 	
 	public void cadastrar(){
@@ -191,6 +186,8 @@ public class TelaAdministrador {
 			JOptionPane.showMessageDialog(frmAdministrador, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (com.fafica.projeto.administrador.CampoObrigatorioInvalidoException e) {
 			JOptionPane.showMessageDialog(frmAdministrador, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception e1){
+			JOptionPane.showMessageDialog(frmAdministrador, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -221,6 +218,8 @@ public class TelaAdministrador {
 			JOptionPane.showMessageDialog(frmAdministrador, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (com.fafica.projeto.administrador.CampoObrigatorioInvalidoException e) {
 			JOptionPane.showMessageDialog(frmAdministrador, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception e1){
+			JOptionPane.showMessageDialog(frmAdministrador, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -239,6 +238,8 @@ public class TelaAdministrador {
 			JOptionPane.showMessageDialog(frmAdministrador, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (com.fafica.projeto.administrador.CampoObrigatorioInvalidoException e) {
 			JOptionPane.showMessageDialog(frmAdministrador, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception e1){
+			JOptionPane.showMessageDialog(frmAdministrador, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
@@ -262,6 +263,8 @@ public class TelaAdministrador {
 			JOptionPane.showMessageDialog(frmAdministrador, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (com.fafica.projeto.administrador.CampoObrigatorioInvalidoException e) {
 			JOptionPane.showMessageDialog(frmAdministrador, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
+		} catch (Exception e1){
+			JOptionPane.showMessageDialog(frmAdministrador, "Ocorreu um erro!\n Tente novamente.\n Se persistir, contactar administrador do sistema.", "ERRO", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 	
