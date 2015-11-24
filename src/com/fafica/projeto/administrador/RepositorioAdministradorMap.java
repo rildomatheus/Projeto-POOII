@@ -17,7 +17,7 @@ public class RepositorioAdministradorMap implements IRepositorioAdministrador {
 	public void cadastrar(Administrador administrador) throws AdministradorJaCadastradoException {
 		if(existe(administrador.getCodigo())) throw new AdministradorJaCadastradoException();
 		adm.put(administrador.getCodigo(), administrador);
-		System.out.println("Funcionario cadastrado com sucesso!! :-D");
+	
 		
 	}
 
@@ -26,7 +26,7 @@ public class RepositorioAdministradorMap implements IRepositorioAdministrador {
 		if(existe(administrador.getCodigo())){
 		adm.remove(administrador.getCodigo());
 		adm.put(administrador.getCodigo(), administrador);
-		System.out.println("Administrador atualizado com sucesso!");
+		
 	 }else throw new AdministradorNaoEncontradoException();
 		
  }
@@ -34,7 +34,6 @@ public class RepositorioAdministradorMap implements IRepositorioAdministrador {
 	public void remover(int codigo) throws AdministradorNaoEncontradoException {
 		if(existe(codigo)){
 			adm.remove(codigo);
-			System.out.println("Funcionario removido com sucesso!");
 		}else throw new AdministradorNaoEncontradoException();
 	}
 

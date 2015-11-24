@@ -19,7 +19,7 @@ public class RepositorioAdministradorSet implements IRepositorioAdministrador{
 	public void cadastrar(Administrador administrador) throws AdministradorJaCadastradoException {
 		if(existe(administrador.getCodigo())) throw new AdministradorJaCadastradoException();
 		adm.add(administrador);
-		System.out.println("Administrador cadastrado com sucesso!");
+		
 	}
 
 	
@@ -35,7 +35,7 @@ public class RepositorioAdministradorSet implements IRepositorioAdministrador{
 			
 			adm.remove(administradorAtualizar);
 			adm.add(administrador);
-			System.out.println("Administrador atualizado com sucesso!");
+		
 	   }else throw new AdministradorNaoEncontradoException();
 	}
 
@@ -49,7 +49,7 @@ public class RepositorioAdministradorSet implements IRepositorioAdministrador{
 			}
 		}
 			adm.remove(administradorRemove);
-			System.out.println("Administrador removido com sucesso!");
+		
 		} else throw new  AdministradorNaoEncontradoException();
 	}
 		

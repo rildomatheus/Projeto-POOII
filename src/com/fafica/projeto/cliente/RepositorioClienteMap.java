@@ -15,7 +15,7 @@ public class RepositorioClienteMap implements IRepositorioCliente{
 	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException {
 		if (existe(cliente.getCodigo())) throw new ClienteJaCadastradoException();
 		clienteMap.put(cliente.getCodigo() , cliente);
-		System.out.println("Cliente Cadastrado Com Sucesso!!");
+		
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class RepositorioClienteMap implements IRepositorioCliente{
 		if(existe(cliente.getCodigo())){
 			clienteMap.remove(cliente.getCodigo());
 			clienteMap.put(cliente.getCodigo(), cliente);
-			System.out.println("Cliente Atualizado Com Sucesso!!");
+			
 		}else throw new ClienteNaoEncontradoException();
 		
 	}
@@ -32,7 +32,7 @@ public class RepositorioClienteMap implements IRepositorioCliente{
 	public void remover(int codigo) throws ClienteNaoEncontradoException {
 		if(existe(codigo)){
 			clienteMap.remove(codigo);
-			System.out.println("Cliente Removido Com Sucesso!!");
+			
 		}else throw new ClienteNaoEncontradoException();
 		
 	}

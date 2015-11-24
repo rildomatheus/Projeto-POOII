@@ -15,7 +15,7 @@ public class RepositorioCaixaMap implements IRepositorioCaixa {
 	public void cadastrar(Caixa caixa) throws CaixaJaCadastradaException {
 		if (existe(caixa.getCodigo())) throw new CaixaJaCadastradaException();
 		caixaMap.put(caixa.getCodigo() , caixa);
-		System.out.println("Caixa Cadastrado Com Sucesso!!");
+		
 	}
 
 	@Override
@@ -23,7 +23,7 @@ public class RepositorioCaixaMap implements IRepositorioCaixa {
 		if(existe(caixa.getCodigo())){
 			caixaMap.remove(caixa.getCodigo());
 			caixaMap.put(caixa.getCodigo(), caixa);
-			System.out.println("Caixa Atualizado Com Sucesso!!");
+		
 		}else throw new CaixaNaoEncontradaException();
 	}
 
@@ -31,7 +31,7 @@ public class RepositorioCaixaMap implements IRepositorioCaixa {
 	public void remover(int codigo) throws CaixaNaoEncontradaException {
 		if(existe(codigo)){
 			caixaMap.remove(codigo);
-			System.out.println("Caixa Removido Com Sucesso!!");
+		
 		}else throw new CaixaNaoEncontradaException();
 		
 	}

@@ -17,7 +17,7 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 	public void cadastrar(Administrador administrador) throws AdministradorJaCadastradoException{
 		if(existe(administrador.getCodigo())) throw new AdministradorJaCadastradoException();	
 		arrayListAdministrador.add(administrador);
-		System.out.println("Administrador cadastrado com sucesso!");
+		
 		
 		
 	}
@@ -28,7 +28,7 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 			if(administrador1.getCodigo() == administrador.getCodigo()){
 				arrayListAdministrador.remove(administrador1);
 				arrayListAdministrador.add(administrador);
-				System.out.println("Administrador atualizador com sucesso!!");
+				
 				
 			}
 		else throw new AdministradorNaoEncontradoException();
@@ -46,7 +46,7 @@ public class RepositorioAdministradorArrayList implements IRepositorioAdministra
 			}
 		  
 		arrayListAdministrador.remove(adm);
-		System.out.println("Administrador removido com sucesso!!");
+		
 		
 		}else throw new AdministradorNaoEncontradoException();		
 	}

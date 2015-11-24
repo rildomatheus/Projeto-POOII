@@ -9,13 +9,11 @@ public class TelaTesteEstante {
 		Caixa caixa = new Caixa(1,"Documentos de zezinho");
 		
 	//	Fachada fachada = Fachada.getInstance();
-		Estante estante = new Estante(12,"Rua 3",10);
-	//	Estante estante1 = new Estante(13,"Rua 4",10);
-	//	Estante estante2 = new Estante(12,"Rua 5",10);
+		Estante estante = new Estante(12,"Rua 3");
+	//	Estante estante1 = new Estante(13,"Rua 4");
+	//	Estante estante2 = new Estante(12,"Rua 5");
 		
-		estante.setCaixa(caixa.getCodigo(),caixa);
-		estante.setCaixa(caixa.getCodigo(),caixa);
-		estante.setCaixa(caixa.getCodigo(),caixa);
+		
 		System.out.println(estante);
 		/*
 		try {

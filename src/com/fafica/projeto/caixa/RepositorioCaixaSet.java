@@ -14,7 +14,7 @@ public class RepositorioCaixaSet implements IRepositorioCaixa{
 	public void cadastrar(Caixa caixa) throws CaixaJaCadastradaException {
 		if(existe(caixa.getCodigo())) throw new CaixaJaCadastradaException();
 		caixaSet.add(caixa);
-		System.out.println("Caixa Cadastrado Com Sucesso!!");
+		
 	}
 
 	@Override
@@ -28,7 +28,7 @@ public class RepositorioCaixaSet implements IRepositorioCaixa{
 			}
 			caixaSet.remove(caixaAtualizar);
 			caixaSet.add(caixa);
-			System.out.println("Caixa Atualizada Com Sucesso!!");
+			
 		}else throw new CaixaNaoEncontradaException();
 		
 	}
@@ -44,7 +44,7 @@ public class RepositorioCaixaSet implements IRepositorioCaixa{
 			
 			}
 			caixaSet.remove(caixaRemover);
-			System.out.println("Caixa Removida Com Sucesso!!");
+		
 		} else throw new CaixaNaoEncontradaException();	
 		
 	}

@@ -13,7 +13,7 @@ public class RepositorioClienteSet implements IRepositorioCliente{
 	public void cadastrar(Cliente cliente) throws ClienteJaCadastradoException {
 		if(existe(cliente.getCodigo())) throw new ClienteJaCadastradoException();
 		clienteSet.add(cliente);
-		System.out.println("Cliente Cadastrado Com Sucesso!!");
+		
 	}
 		
 
@@ -28,7 +28,7 @@ public class RepositorioClienteSet implements IRepositorioCliente{
 			}
 			clienteSet.remove(clienteAtualizar);
 			clienteSet.add(cliente);
-			System.out.println("Cliente Atualizado Com Sucesso!!");
+			
 		}else throw new ClienteNaoEncontradoException();
 		
 	}
@@ -44,7 +44,7 @@ public class RepositorioClienteSet implements IRepositorioCliente{
 			
 			}
 			clienteSet.remove(clienteRemover);
-			System.out.println("Cliente Removido Com Sucesso!!");
+			
 		} else throw new ClienteNaoEncontradoException();	
 	}
 

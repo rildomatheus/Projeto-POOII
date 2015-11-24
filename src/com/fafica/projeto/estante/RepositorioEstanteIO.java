@@ -30,7 +30,7 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 	
 	public void armazenarDadosIncremental(Estante estante){
 		try(BufferedWriter escritor = Files.newBufferedWriter(path, utf8, StandardOpenOption.APPEND)){
-			escritor.write(estante.getCodigo()+";"+estante.getRua()+";"+estante.getModulos()+"\r\n");
+			escritor.write(estante.getCodigo()+";"+estante.getRua()+";"+"\r\n");
 		}catch(IOException e){
 			e.printStackTrace();
 		}
@@ -38,41 +38,13 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 	public void armazenarDadosArray(ArrayList<Estante> estantes){
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Estante estante : estantes){
-				escritor.write(estante.getCodigo()+";"+estante.getRua()+";"+estante.getModulos()+"\r\n");
+				escritor.write(estante.getCodigo()+";"+estante.getRua()+";"+"\r\n");
 			}
 		} catch (IOException e){
 			e.printStackTrace();
 		}
 	}
 	
-	public void armazenarDadosArrayCaixas(ArrayList<Caixa> caixas){
-		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
-			for(Caixa caixa : caixas){
-				escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+";"+caixa.getCliente().getCodigo()+";"
-						+caixa.getCliente().getNome()+";"+caixa.getCliente().getLoja()+";"
-						+caixa.getEstante().getCodigo()+";"+caixa.getEstante().getRua()+";"
-						+caixa.getEstante().getModulos()+"\r\n");
-			}
-		} catch (IOException e){
-			System.out.println("ERROR");
-		}
-	}
-	public ArrayList<Caixa> recuperarDadosListaCaixa(){
-		ArrayList<Caixa> caixaLida = new ArrayList<Caixa>();
-		try(BufferedReader leitor = Files.newBufferedReader(path,utf8)){
-			String linha = null;
-			while((linha = leitor.readLine()) != null){
-				String[] atributo = linha.split(";");
-				Cliente cliente = new Cliente(Integer.parseInt(atributo[2]),atributo[3],Integer.parseInt(atributo[4]));
-				Estante estante = new Estante(Integer.parseInt(atributo[5]),atributo[6],Integer.parseInt(atributo[7]));
-				Caixa caixa = new Caixa(Integer.parseInt(atributo[0]),atributo[1],cliente,estante);
-				caixaLida.add(caixa);
-			}
-		} catch (IOException e){
-			System.out.println("ERROR");
-		}
-		return caixaLida;
-	}
 	
 	public ArrayList<Estante> recuperarDados(){
 		ArrayList<Estante> estanteLidos = new ArrayList<Estante>();
@@ -80,7 +52,7 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 			String linha = null;
 			while((linha = leitor.readLine()) != null){
 				String[] atributo = linha.split(";");
-				Estante estante = new Estante(Integer.parseInt(atributo[0]),atributo[1], Integer.parseInt(atributo[2]));
+				Estante estante = new Estante(Integer.parseInt(atributo[0]),atributo[1]);
 				estanteLidos.add(estante);
 			}
 		} catch (IOException e){
@@ -155,16 +127,6 @@ public class RepositorioEstanteIO implements IRepositorioEstante{
 		estantes = recuperarDados();
 		
 		return estantes;
-	}
-	
-	public ArrayList<Caixa> listarCaixasCadastradas(int codigo) throws EstanteNaoEncontradaException{
-		caixas = recuperarDadosListaCaixa();
-		for(Caixa caixa : caixas){
-			if(caixa.getEstante().getCodigo() != codigo){
-				throw new EstanteNaoEncontradaException();
-			}
-		}
-		return caixas;
 	}
 	
 

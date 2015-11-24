@@ -73,7 +73,7 @@ public class TelaFuncionario extends JFrame{
 		
 		fachada = Fachada.getInstance();
 	
-		setTitle("Cadastrar Funcion\u00E1rio");
+		setTitle("Funcion\u00E1rio");
 		setBounds(100, 100, 625, 350);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);

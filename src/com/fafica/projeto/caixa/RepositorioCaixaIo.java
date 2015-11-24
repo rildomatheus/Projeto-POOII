@@ -27,7 +27,7 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 	public void armazenarDadosIncremental(Caixa caixa){
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8, StandardOpenOption.APPEND)){
 			escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+";"+caixa.getCliente().getCodigo()+";"+caixa.getCliente().getNome()
-					+";"+caixa.getCliente().getLoja()+";"+caixa.getEstante().getCodigo()+";"+caixa.getEstante().getRua()+";"+caixa.getEstante().getModulos()+"\r\n");
+					+";"+caixa.getCliente().getLoja()+";"+caixa.getEstante().getCodigo()+";"+caixa.getEstante().getRua()+"\r\n");
 		} catch (IOException e){
 			e.printStackTrace();
 		}
@@ -37,7 +37,7 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Caixa caixa : arrayListCaixa){
 				escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+";"+caixa.getCliente().getCodigo()+";"+caixa.getCliente().getNome()
-						+";"+caixa.getCliente().getLoja()+";"+caixa.getEstante().getCodigo()+";"+caixa.getEstante().getRua()+";"+caixa.getEstante().getModulos()+"\r\n");
+						+";"+caixa.getCliente().getLoja()+";"+caixa.getEstante().getCodigo()+";"+caixa.getEstante().getRua()+"\r\n");
 			}
 		} catch (IOException e){
 			System.out.println("ERROR");
@@ -51,7 +51,7 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 			while((linha = leitor.readLine()) != null){
 				String[] atributo = linha.split(";");
 				Cliente cliente = new Cliente(Integer.parseInt(atributo[2]),atributo[3],Integer.parseInt(atributo[4]));
-				Estante estante = new Estante(Integer.parseInt(atributo[5]),atributo[6],Integer.parseInt(atributo[7]));
+				Estante estante = new Estante(Integer.parseInt(atributo[5]),atributo[6]);
 				Caixa caixa = new Caixa(Integer.parseInt(atributo[0]),atributo[1],cliente,estante);
 				caixaLida.add(caixa);
 			}

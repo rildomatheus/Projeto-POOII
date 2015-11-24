@@ -31,7 +31,6 @@ public class TelaEstante extends JFrame{
 	private JFrame frmCadastrarEstante;
 	private JTextField txtCodigo;
 	private JTextField txtRua;
-	private JTextField txtModulos;
 	private JTable tableEstante;
 	private Fachada fachada;
 	private DefaultTableModel model;
@@ -58,7 +57,7 @@ public class TelaEstante extends JFrame{
 		
 		fachada = Fachada.getInstance();
 		
-		setTitle("Cadastrar Estante");
+		setTitle("Estante");
 		setBounds(100, 100, 625, 350);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);
@@ -71,33 +70,23 @@ public class TelaEstante extends JFrame{
 		
 		JLabel lblCdigo = new JLabel("C\u00F3digo:");
 		lblCdigo.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblCdigo.setBounds(12, 11, 46, 14);
+		lblCdigo.setBounds(27, 11, 46, 14);
 		panel.add(lblCdigo);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(54, 8, 86, 20);
+		txtCodigo.setBounds(68, 8, 86, 20);
 		panel.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		JLabel lblRua = new JLabel("Rua:");
 		lblRua.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblRua.setBounds(172, 11, 46, 14);
+		lblRua.setBounds(230, 11, 46, 14);
 		panel.add(lblRua);
 		
 		txtRua = new JTextField();
-		txtRua.setBounds(200, 8, 213, 20);
+		txtRua.setBounds(257, 8, 232, 20);
 		panel.add(txtRua);
 		txtRua.setColumns(10);
-		
-		JLabel lblMdulos = new JLabel("M\u00F3dulos:");
-		lblMdulos.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		lblMdulos.setBounds(443, 11, 46, 14);
-		panel.add(lblMdulos);
-		
-		txtModulos = new JTextField();
-		txtModulos.setBounds(491, 8, 86, 20);
-		panel.add(txtModulos);
-		txtModulos.setColumns(10);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -168,7 +157,7 @@ public class TelaEstante extends JFrame{
 			new Object[][] {
 			},
 			new String[] {
-				"C\u00F3digo", "Rua", "M\u00F3dulos"
+				"C\u00F3digo", "Rua"
 			}
 		));
 		tableEstante.getColumnModel().getColumn(0).setPreferredWidth(49);
@@ -181,21 +170,18 @@ public class TelaEstante extends JFrame{
 		limparTabelaEstante();
 		txtCodigo.setText("");
 		txtRua.setText("");
-		txtModulos.setText("");
+		
 	}
 	private void cadastrar(){
 		String codigo = txtCodigo.getText();
 		String rua = txtRua.getText();
-		String modulos = txtModulos.getText();
+		
 		if(codigo.equals("")){
 			codigo = "0";
 		}
-		if(modulos.equals("")){
-			modulos = "0";
-		}
 		
 		try {
-			Estante estante = new Estante(Integer.parseInt(codigo), rua, Integer.parseInt(modulos));
+			Estante estante = new Estante(Integer.parseInt(codigo), rua);
 			fachada.cadastrarEstante(estante);
 			JOptionPane.showMessageDialog(frmCadastrarEstante, "Estante cadastrada com sucesso!");
 			limparCampos();
@@ -213,17 +199,15 @@ public class TelaEstante extends JFrame{
 	private void atualizar(){
 		String codigo = txtCodigo.getText();
 		String rua = txtRua.getText();
-		String modulos = txtModulos.getText();
+
 		if(codigo.equals("")){
 			codigo = "0";
 		}
-		if(modulos.equals("")){
-			modulos = "0";
-		}
+		
 		
 		
 		try {
-			Estante estante = new Estante(Integer.parseInt(codigo), rua, Integer.parseInt(modulos));
+			Estante estante = new Estante(Integer.parseInt(codigo), rua);
 			fachada.atualizarEstante(estante);
 			JOptionPane.showMessageDialog(frmCadastrarEstante, "Estante atualizada com sucesso!");
 			limparCampos();
@@ -249,7 +233,6 @@ public class TelaEstante extends JFrame{
 			Vector vector = new Vector();
 			vector.add(estante.getCodigo());
 			vector.add(estante.getRua());
-			vector.add(estante.getModulos());
 			model.addRow(vector);
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(frmCadastrarEstante, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -270,7 +253,6 @@ public class TelaEstante extends JFrame{
 			Vector vector = new Vector();
 			vector.add(estante.getCodigo());
 			vector.add(estante.getRua());
-			vector.add(estante.getModulos());
 			model.addRow(vector);
 		}
 	}

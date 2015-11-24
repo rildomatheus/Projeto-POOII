@@ -16,7 +16,6 @@ public class ControladorEstante {
 		if(estante == null) throw new IllegalArgumentException("Funcionário Inválido!");
 		if(estante.getCodigo() == 0) throw new CampoObrigatorioInvalidoException("\"Código\"");
 		if(estante.getRua().equals("")) throw new CampoObrigatorioInvalidoException("\"Rua\"");
-		if(estante.getModulos() == 0) throw new CampoObrigatorioInvalidoException("\"Módulos\"");
 		this.repositorioEstante.cadastrar(estante);
 	}
 	

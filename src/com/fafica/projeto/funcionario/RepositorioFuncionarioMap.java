@@ -18,21 +18,21 @@ public class RepositorioFuncionarioMap implements IRepositorioFuncionario {
 	public void cadastrar(Funcionario funcionario) throws FuncionarioJaCadastradoException{
 		if(existe(funcionario.getCodigo())) throw new FuncionarioJaCadastradoException();
 		funcionarios.put(funcionario.getCodigo(), funcionario);
-		System.out.println("Funcionário cadastrado com sucesso!");
+		
 	}
 	
 	public void atualizar(Funcionario funcionario) throws FuncionarioNaoEncontradoException{
 		if(existe(funcionario.getCodigo())){
 			funcionarios.remove(funcionario.getCodigo());
 			funcionarios.put(funcionario.getCodigo(), funcionario);
-			System.out.println("Funcionário atualizado com sucesso!");
+		
 		}else throw new FuncionarioNaoEncontradoException();
 	}
 	
 	public void remover(int codigo) throws FuncionarioNaoEncontradoException{
 		if(existe(codigo)){
 			funcionarios.remove(codigo);
-			System.out.println("Funcionário removido com sucesso!");
+		
 		}else throw new FuncionarioNaoEncontradoException();
 	}
 	

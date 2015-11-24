@@ -72,7 +72,7 @@ public class TelaCaixa extends JFrame{
 		fachada = Fachada.getInstance();
 	
 		
-		setTitle("Cadastrar caixa");
+		setTitle("Caixa");
 		setBounds(100, 100, 625, 350);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(null);

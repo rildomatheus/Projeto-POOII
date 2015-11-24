@@ -31,7 +31,7 @@ public class RepositorioFuncionarioArrayList implements IRepositorioFuncionario 
 			}
 			funcionarios.remove(funcionarioAtualizar);
 			funcionarios.add(funcionario);
-			System.out.println("Funcionário atualizado com sucesso!");
+		
 		}else throw new FuncionarioNaoEncontradoException();
 	}
 		//System.out.println(funcionarios.indexOf(funcionario.codigo));
@@ -46,7 +46,7 @@ public class RepositorioFuncionarioArrayList implements IRepositorioFuncionario 
 			
 			}
 			funcionarios.remove(funcionarioRemover);
-			System.out.println("Funcionário removido com sucesso!");
+		
 		} else throw new FuncionarioNaoEncontradoException();	
 	}
 	
