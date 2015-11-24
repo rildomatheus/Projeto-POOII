@@ -17,15 +17,14 @@ import com.fafica.projeto.cliente.Cliente;
 public class RepositorioEstanteIO implements IRepositorioEstante{
 
 	private ArrayList<Estante> estantes;
-	private ArrayList<Caixa> caixas;
-	Path path = Paths.get("C:/Users/Lynneker/git/Projeto-POOII/Files/estantes.txt");
-	Path path2 = Paths.get("C:/Users/Lynneker/git/Projeto-POOII/Files/caixasNaEstante.txt");
+
+	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/estantes.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	
 	
 	public RepositorioEstanteIO(){
 		estantes = new ArrayList<Estante>();
-		caixas = new ArrayList<Caixa>();
+	
 	}
 	
 	public void armazenarDadosIncremental(Estante estante){

@@ -148,8 +148,10 @@ public class TelaInicial {
 		
 		
 			try {
-				if(codigoAdm.equals("admin") || fachada.existeAdministrador(Integer.parseInt("codigoAdm"))){
+				if(codigoAdm.equals("admin")){
 					limparCampos();
+					return true;
+				}if(fachada.existeAdministrador(Integer.parseInt(codigoAdm))){
 					return true;
 				}
 			} catch (NumberFormatException e) {
