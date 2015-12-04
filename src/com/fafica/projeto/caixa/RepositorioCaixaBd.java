@@ -28,17 +28,21 @@ import com.fafica.projeto.estante.Estante;
 		public void cadastrar(Caixa caixa){
 			
 			// Criando a String SQL
-			String sql = "insert into caixa (codigo, descricao, cliente, endereco) values (?,?,?,?)";
+			String sql = "insert into caixa (codigo, descricao, codigo_cliente, nome_cliente, loja_cliente, codigo_estante, rua_estante ) values (?,?,?,?,?,?,?)";
 
-			
+		
 			try {
 				// Criar o PreparedStatement, objeto para executar a query
 				PreparedStatement preStatement = conn.prepareStatement(sql);
 				// Atualizando o primeiro parametro
 				preStatement.setInt(1, caixa.getCodigo());
 				preStatement.setString(2, caixa.getDescricao());
-				preStatement.setObject(3, caixa.getCliente());
-				preStatement.setObject(4, caixa.getEstante());
+				preStatement.setInt(3, caixa.getCliente().getCodigo());
+				preStatement.setString(4, caixa.getCliente().getNome());
+				preStatement.setInt(5, caixa.getCliente().getLoja());
+				preStatement.setInt(6, caixa.getEstante().getCodigo());
+				preStatement.setString(7, caixa.getEstante().getRua());
+				
 				preStatement.execute();
 				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso");
 			} catch (SQLException e) {
@@ -53,17 +57,20 @@ import com.fafica.projeto.estante.Estante;
 		public void atualizar(Caixa caixa){
 
 			// Criando a String SQL
-			String sql = "update caixa set codigo= ? ,descricao= ?, cliente= ?, estante= ? where codigo = ?";
+			String sql = "update caixa set descricao= ?, codigo_cliente= ?, nome_cliente=?, loja_cliente= ?, codigo_estante= ?, rua_estante= ? where codigo = ?";
 			// Criar o PreparedStatement, objeto para executar a query
 			
 
 			try {
 				PreparedStatement preStatement = conn.prepareStatement(sql);
-				preStatement.setInt(1, caixa.getCodigo());
-				preStatement.setString(2, caixa.getDescricao());
-				preStatement.setObject(3, caixa.getCliente());
-				preStatement.setObject(4, caixa.getEstante());
-
+				preStatement.setString(1, caixa.getDescricao());
+				preStatement.setInt(2, caixa.getCliente().getCodigo());
+				preStatement.setString(3, caixa.getCliente().getNome());
+				preStatement.setInt(4, caixa.getCliente().getLoja());
+				preStatement.setInt(5, caixa.getEstante().getCodigo());
+				preStatement.setString(6, caixa.getEstante().getRua());
+				preStatement.setInt(7, caixa.getCodigo());
+				
 				// Executando o select
 				preStatement.executeUpdate();
 				JOptionPane.showMessageDialog(null, "Atualizado Com Sucesso");
@@ -108,13 +115,10 @@ import com.fafica.projeto.estante.Estante;
 				preStatement.setInt(1, codigo);
 				ResultSet resultSet = preStatement.executeQuery();
 				while (resultSet.next()) {
-				int codigo2 = resultSet.getInt(2);
-				String descricao = resultSet.getString(3);
-				Cliente cliente = (Cliente) resultSet.getObject(4);
-				Estante estante = (Estante) resultSet.getObject(5);
-				
-				Caixa caixa = new Caixa(codigo2,descricao,cliente,estante);
-				return caixa;
+					Cliente cliente = new Cliente (resultSet.getInt(3), resultSet.getString(4), resultSet.getInt(5));
+					Estante estante = new Estante(resultSet.getInt(6),resultSet.getString(7));
+					Caixa caixa = new Caixa(resultSet.getInt(1),resultSet.getString(2),cliente,estante);
+					return caixa;
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -160,14 +164,9 @@ import com.fafica.projeto.estante.Estante;
 
 				// Verifica se retornou dados na consulta
 				while (resultSet.next()) {
-					// Pegando as colunas do registro
-					int codigo2 = resultSet.getInt(1);
-					String descricao = resultSet.getString(2);
-					Cliente cliente = (Cliente) resultSet.getObject(3);
-					Estante estante = (Estante) resultSet.getObject(4);
-					
-				
-					Caixa caixa = new Caixa(codigo2,descricao,cliente,estante);
+					Cliente cliente = new Cliente (resultSet.getInt(3), resultSet.getString(4), resultSet.getInt(5));
+					Estante estante = new Estante(resultSet.getInt(6),resultSet.getString(7));
+					Caixa caixa = new Caixa(resultSet.getInt(1),resultSet.getString(2),cliente,estante);
 					arrayListCaixa.add(caixa);
 				}
 			} catch (SQLException e) {
