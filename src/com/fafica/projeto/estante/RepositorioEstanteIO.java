@@ -2,6 +2,7 @@ package com.fafica.projeto.estante;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -11,52 +12,79 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import com.fafica.projeto.caixa.Caixa;
 import com.fafica.projeto.cliente.Cliente;
 
 public class RepositorioEstanteIO implements IRepositorioEstante{
 
 	private ArrayList<Estante> estantes;
-
+	private File arquivo;
+	
 	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/estantes.txt");
+
 	Charset utf8 = StandardCharsets.UTF_8;
 	
 	
 	public RepositorioEstanteIO(){
 		estantes = new ArrayList<Estante>();
-	
+		arquivo = new File("C:/Users/Dennis/git/Projeto-POOII/Files/estantes.txt");
 	}
 	
 	public void armazenarDadosIncremental(Estante estante){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path, utf8, StandardOpenOption.APPEND)){
-			escritor.write(estante.getCodigo()+";"+estante.getRua()+";"+"\r\n");
+			escritor.write(estante.getCodigo()+";"+estante.getRua()+";"+"\r\n");	
 		}catch(IOException e){
 			e.printStackTrace();
 		}
 	}
 	public void armazenarDadosArray(ArrayList<Estante> estantes){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Estante estante : estantes){
 				escritor.write(estante.getCodigo()+";"+estante.getRua()+";"+"\r\n");
 			}
 		} catch (IOException e){
-			e.printStackTrace();
+			
 		}
 	}
 	
 	
 	public ArrayList<Estante> recuperarDados(){
+		
 		ArrayList<Estante> estanteLidos = new ArrayList<Estante>();
+		
 		try(BufferedReader leitor = Files.newBufferedReader(path,utf8)){
 			String linha = null;
+			
 			while((linha = leitor.readLine()) != null){
+			
 				String[] atributo = linha.split(";");
+			
+			
 				Estante estante = new Estante(Integer.parseInt(atributo[0]),atributo[1]);
+			
 				estanteLidos.add(estante);
+			
 			}
 		} catch (IOException e){
 			System.out.println("Ocorreu um erro");
 		}
+		
 		return estanteLidos;
 	}
 	

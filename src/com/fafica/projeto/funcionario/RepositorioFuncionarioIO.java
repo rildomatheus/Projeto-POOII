@@ -2,6 +2,7 @@ package com.fafica.projeto.funcionario;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -13,17 +14,24 @@ import java.util.ArrayList;
 
 public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 	
-	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/funcionarios.txt");
-	Charset utf8 = StandardCharsets.UTF_8;
+	private Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/funcionarios.txt");
+	private Charset utf8 = StandardCharsets.UTF_8;
 	private ArrayList<Funcionario> funcionarios;
-	
+	private File arquivo;
 	
 	public RepositorioFuncionarioIO(){
 		funcionarios = new ArrayList<Funcionario>();
-		
+		arquivo = new File("C:/Users/Dennis/git/Projeto-POOII/Files/funcionarios.txt");
 	}
 	
 	public void armazenarDadosIncremental(Funcionario funcionario){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8, StandardOpenOption.APPEND)){
 			escritor.write(funcionario.getCodigo()+";"+funcionario.getNome()+"\r\n");
 		} catch (IOException e){
@@ -32,6 +40,13 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 		}
 	}
 	public void armazenarDadosArray(ArrayList<Funcionario> funcionarios){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Funcionario funcionario : funcionarios){
 				escritor.write(funcionario.getCodigo()+";"+funcionario.getNome()+"\r\n");
@@ -59,7 +74,8 @@ public class RepositorioFuncionarioIO implements IRepositorioFuncionario{
 	public void cadastrar(Funcionario funcionario) throws FuncionarioJaCadastradoException{
 		if(existe(funcionario.getCodigo())) throw new FuncionarioJaCadastradoException();
 		armazenarDadosIncremental(funcionario);
-		
+		//funcionarios.add(funcionario);
+	//	armazenarDadosArray(funcionarios);
 	}
 	
 	public void atualizar(Funcionario funcionario) throws FuncionarioNaoEncontradoException{

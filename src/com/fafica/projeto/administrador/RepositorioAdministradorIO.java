@@ -2,6 +2,7 @@ package com.fafica.projeto.administrador;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -15,14 +16,22 @@ public class RepositorioAdministradorIO implements IRepositorioAdministrador{
 	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/administradores.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	private ArrayList<Administrador> listaAdministrador;
-	
+	private File arquivo;
 	
 	public RepositorioAdministradorIO(){
 		listaAdministrador = new ArrayList<Administrador>();
+		arquivo = new File("C:/Users/Dennis/git/Projeto-POOII/Files/administradores.txt");
 		
 	}
 	
 	public void armazenarDadosIncremental(Administrador administrador){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8, StandardOpenOption.APPEND)){
 			escritor.write(administrador.getCodigo()+";"+administrador.getNome()+"\r\n");
 		} catch (IOException e){
@@ -31,6 +40,13 @@ public class RepositorioAdministradorIO implements IRepositorioAdministrador{
 		}
 	}
 	public void armazenarDadosArray(ArrayList<Administrador> listaAdministrador){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Administrador administrador : listaAdministrador){
 				escritor.write(administrador.getCodigo()+";"+administrador.getNome()+"\r\n");

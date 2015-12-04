@@ -85,10 +85,12 @@ public class TelaFuncionario extends JFrame{
 		panel_AtualizarCadastrar.setLayout(null);
 		
 		JLabel lblCdigo = new JLabel("C\u00F3digo:");
+		lblCdigo.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblCdigo.setBounds(10, 11, 46, 14);
 		panel_AtualizarCadastrar.add(lblCdigo);
 		
 		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNome.setBounds(153, 11, 46, 14);
 		panel_AtualizarCadastrar.add(lblNome);
 		
@@ -139,6 +141,7 @@ public class TelaFuncionario extends JFrame{
 		panel_ProcuraRemover.setLayout(null);
 		
 		JLabel lblCdigo_1 = new JLabel("C\u00F3digo:");
+		lblCdigo_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblCdigo_1.setBounds(10, 15, 46, 14);
 		panel_ProcuraRemover.add(lblCdigo_1);
 		

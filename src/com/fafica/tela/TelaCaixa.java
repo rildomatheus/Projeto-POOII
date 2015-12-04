@@ -197,6 +197,11 @@ public class TelaCaixa extends JFrame{
 		scrollPane.setViewportView(tableCaixa);
 		
 		JButton btnLimpar = new JButton("Limpar");
+		btnLimpar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				limparCampos();
+			}
+		});
 		btnLimpar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnLimpar.setBounds(260, 139, 89, 23);
 		getContentPane().add(btnLimpar);
@@ -246,6 +251,7 @@ public class TelaCaixa extends JFrame{
 			
 			Caixa caixa = new Caixa(Integer.parseInt(codigoCaixa), descricao,cliente,estante);
 			fachada.cadastrarCaixa(caixa);
+			limparCampos();
 			JOptionPane.showMessageDialog(frmCadastrarCaixa, "Caixa cadastrada com sucesso!");
 		} catch (CaixaJaCadastradaException e) {
 			JOptionPane.showMessageDialog(frmCadastrarCaixa, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -280,6 +286,7 @@ public class TelaCaixa extends JFrame{
 		
 		try {
 			estante = fachada.procurarEstante(Integer.parseInt(codigoEstante));
+			limparCampos();
 		} catch (NumberFormatException e1) {
 			JOptionPane.showMessageDialog(frmCadastrarCaixa, e1.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);
 		} catch (com.fafica.projeto.funcionario.CampoObrigatorioInvalidoException e1) {
@@ -372,6 +379,7 @@ public class TelaCaixa extends JFrame{
 		}
 		try {
 			fachada.removerCaixa(Integer.parseInt(codigoCaixa));
+			limparCampos();
 			JOptionPane.showMessageDialog(frmCadastrarCaixa, "Caixa removida com sucesso!");
 		} catch (NumberFormatException e) {
 			JOptionPane.showMessageDialog(frmCadastrarCaixa, e.getMessage(), "ERRO", JOptionPane.ERROR_MESSAGE);

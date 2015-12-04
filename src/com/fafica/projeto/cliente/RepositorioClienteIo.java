@@ -2,6 +2,7 @@ package com.fafica.projeto.cliente;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -16,12 +17,21 @@ public class RepositorioClienteIo implements IRepositorioCliente{
 	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/clientes.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	private ArrayList<Cliente> arrayListCliente;
+	private File arquivo;
 	
 	public RepositorioClienteIo(){
 		arrayListCliente = new ArrayList<Cliente>();
+		arquivo = new File("C:/Users/Dennis/git/Projeto-POOII/Files/clientes.txt");
 	}
 	
 	public void armazenarDadosIncremental(Cliente cliente){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8, StandardOpenOption.APPEND)){
 			escritor.write(cliente.getCodigo()+";"+cliente.getNome()+";"+cliente.getLoja()+"\r\n");
 		} catch (IOException e){
@@ -30,6 +40,13 @@ public class RepositorioClienteIo implements IRepositorioCliente{
 	}
 	
 	public void armazenarDadosArray(ArrayList<Cliente> arrayListCliente){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Cliente cliente : arrayListCliente){
 				escritor.write(cliente.getCodigo()+";"+cliente.getNome()+";"+cliente.getLoja()+"\r\n");

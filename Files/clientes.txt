@@ -1,1 +1,3 @@
-4;Aliança;5
+4;Bonanza;10
+5;Bonanza;4
+3;Bonanza;3

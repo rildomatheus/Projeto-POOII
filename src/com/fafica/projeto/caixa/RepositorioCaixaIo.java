@@ -2,6 +2,7 @@ package com.fafica.projeto.caixa;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -19,12 +20,21 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 	Path path = Paths.get("C:/Users/Dennis/git/Projeto-POOII/Files/caixas.txt");
 	Charset utf8 = StandardCharsets.UTF_8;
 	private ArrayList<Caixa> arrayListCaixa;
+	private File arquivo;
 	
 	public RepositorioCaixaIo(){
 		arrayListCaixa = new ArrayList<Caixa>();
+		arquivo = new File("C:/Users/Dennis/git/Projeto-POOII/Files/caixas.txt");
 	}
 	
 	public void armazenarDadosIncremental(Caixa caixa){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8, StandardOpenOption.APPEND)){
 			escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+";"+caixa.getCliente().getCodigo()+";"+caixa.getCliente().getNome()
 					+";"+caixa.getCliente().getLoja()+";"+caixa.getEstante().getCodigo()+";"+caixa.getEstante().getRua()+"\r\n");
@@ -34,6 +44,13 @@ public class RepositorioCaixaIo implements IRepositorioCaixa{
 	}
 	
 	public void armazenarDadosArray(ArrayList<Caixa> arrayListCaixa){
+		if(!arquivo.exists()){
+			try {
+				arquivo.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		try(BufferedWriter escritor = Files.newBufferedWriter(path,utf8)){
 			for(Caixa caixa : arrayListCaixa){
 				escritor.write(caixa.getCodigo()+";"+caixa.getDescricao()+";"+caixa.getCliente().getCodigo()+";"+caixa.getCliente().getNome()

@@ -4,7 +4,7 @@ public class AdministradorNaoEncontradoException extends Exception {
 	
 	public AdministradorNaoEncontradoException(){
 		
-		super("Ops!! Administrador nao encontrado! Tente novamente.");
+		super("Administrador nao encontrado! Verifique o código e tente novamente.");
 	}
 
 }

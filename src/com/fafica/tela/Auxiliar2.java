@@ -61,16 +61,6 @@ public class Auxiliar2 extends JFrame {
 		panel.add(lblOQueDeseja);
 		lblOQueDeseja.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		
-		JButton btnFuncionario = new JButton("Funcionario");
-		btnFuncionario.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new TelaFuncionario().setVisible(true);
-			}
-		});
-		btnFuncionario.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnFuncionario.setBounds(43, 122, 104, 23);
-		contentPane.add(btnFuncionario);
-		
 		JButton btnEstante = new JButton("Estante");
 		btnEstante.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -78,7 +68,7 @@ public class Auxiliar2 extends JFrame {
 			}
 		});
 		btnEstante.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnEstante.setBounds(209, 122, 104, 23);
+		btnEstante.setBounds(43, 122, 104, 23);
 		contentPane.add(btnEstante);
 		
 		JButton btnCaixa = new JButton("Caixa");
