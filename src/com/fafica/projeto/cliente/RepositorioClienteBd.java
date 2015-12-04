@@ -13,8 +13,13 @@ import com.fafica.projeto.conexao.ConexaoBd;
 public class RepositorioClienteBd implements IRepositorioCliente {
 	Connection conn;
 
-	public RepositorioClienteBd() throws ClassNotFoundException {
-		this.conn = ConexaoBd.conexaoBd();
+	public RepositorioClienteBd(){
+		try {
+			this.conn = ConexaoBd.conexaoBd();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override

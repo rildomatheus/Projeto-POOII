@@ -7,7 +7,7 @@ public class ControladorCaixa {
 	private IRepositorioCaixa	repositorioCaixa;
 	
 	public ControladorCaixa(){
-		this.repositorioCaixa = new RepositorioCaixaIo();
+		this.repositorioCaixa = new RepositorioCaixaBd();
 	}
 	
 	public void cadastrar(Caixa caixa) throws  CampoObrigatorioInvalidoException, CaixaJaCadastradaException{

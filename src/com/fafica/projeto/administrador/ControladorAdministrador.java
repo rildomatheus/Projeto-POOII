@@ -7,7 +7,7 @@ public class ControladorAdministrador {
 	IRepositorioAdministrador repositorioAdministrador;
 	
 		public ControladorAdministrador(){
-			this.repositorioAdministrador = new RepositorioAdministradorIO();
+			this.repositorioAdministrador = new RepositorioAdministradorBd();
 			
 		}
 		

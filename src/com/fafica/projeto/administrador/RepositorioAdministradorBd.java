@@ -14,8 +14,12 @@ import com.fafica.projeto.funcionario.Funcionario;
 public class RepositorioAdministradorBd implements IRepositorioAdministrador{
 	Connection conn;
 	
-	public RepositorioAdministradorBd() throws ClassNotFoundException {
-		this.conn = ConexaoBd.conexaoBd();
+	public RepositorioAdministradorBd(){
+		try {
+			this.conn = ConexaoBd.conexaoBd();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void cadastrar(Administrador administrador){

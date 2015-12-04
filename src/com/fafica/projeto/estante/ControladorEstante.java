@@ -9,7 +9,7 @@ public class ControladorEstante {
 	private IRepositorioEstante repositorioEstante;
 	
 	public ControladorEstante(){
-		repositorioEstante = new RepositorioEstanteIO();
+		repositorioEstante = new RepositorioEstanteBd();
 	}
 	
 	public void cadastrar(Estante estante) throws IllegalArgumentException, CampoObrigatorioInvalidoException, EstanteJaCadastradaException{

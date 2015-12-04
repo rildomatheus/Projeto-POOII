@@ -7,7 +7,7 @@ import java.util.ArrayList;
 		private IRepositorioCliente repositorioCliente;
 		
 		public ControladorCliente() {
-			this.repositorioCliente = new RepositorioClienteIo();
+			this.repositorioCliente = new RepositorioClienteBd();
 		
 		}
 				

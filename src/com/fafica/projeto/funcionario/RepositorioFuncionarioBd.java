@@ -13,8 +13,13 @@ import com.fafica.projeto.conexao.ConexaoBd;
 public class RepositorioFuncionarioBd implements IRepositorioFuncionario{
 	Connection conn;
 	
-	public RepositorioFuncionarioBd() throws ClassNotFoundException {
-		this.conn = ConexaoBd.conexaoBd();
+	public RepositorioFuncionarioBd(){
+		try {
+			this.conn = ConexaoBd.conexaoBd();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void cadastrar(Funcionario funcionario){
